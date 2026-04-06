@@ -19,30 +19,24 @@ const CATEGORY_IMAGES: Record<string, string> = {
 
 export const CategorySelector: React.FC<CategorySelectorProps> = ({ onSelect }) => {
   return (
-    <section className="py-20 bg-dark-card border-y border-white/[0.03] grain relative">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-10 relative z-10">
-        <h2 className="text-center ornament text-white/25 text-lg font-extralight italic tracking-[0.15em] mb-16">
+    <section className="py-10 sm:py-16 lg:py-20 bg-dark-card border-y border-white/[0.03] grain relative">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+        <h2 className="text-center ornament text-white/25 text-base sm:text-lg font-extralight italic tracking-[0.1em] sm:tracking-[0.15em] mb-8 sm:mb-16">
           Категории автомобилей
         </h2>
-        <div className="flex justify-between items-end gap-6 overflow-x-auto pb-4 hide-scrollbar">
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6">
           {CAR_CLASSES.map((cat) => (
-            <div
-              key={cat}
-              onClick={() => onSelect?.(cat)}
-              className="flex flex-col items-center group cursor-pointer min-w-[130px] flex-1"
-            >
-              <div className="w-36 h-20 mb-5 relative flex items-center justify-center overflow-hidden">
-                <img
-                  src={CATEGORY_IMAGES[cat]}
+            <div key={cat} onClick={() => onSelect?.(cat)}
+              className="flex flex-col items-center group cursor-pointer">
+              <div className="w-20 sm:w-28 lg:w-36 h-12 sm:h-16 lg:h-20 mb-2 sm:mb-5 relative flex items-center justify-center overflow-hidden">
+                <img src={CATEGORY_IMAGES[cat]}
                   className="w-full h-full object-contain brightness-[0.15] saturate-0 group-hover:brightness-[0.5] group-hover:saturate-100 transition-all duration-1000"
-                  alt={cat}
-                />
+                  alt={cat} />
               </div>
-              <span className="text-[12px] text-white/25 group-hover:text-brand-gold/70 transition-colors duration-700 tracking-[0.1em]">
+              <span className="text-[11px] sm:text-xs text-white/25 group-hover:text-brand-gold/70 transition-colors duration-700 tracking-[0.05em] sm:tracking-[0.1em] text-center">
                 {cat}
               </span>
-              {/* Subtle underline on hover */}
-              <div className="w-0 group-hover:w-8 h-px bg-brand-gold/30 mt-3 transition-all duration-700"></div>
+              <div className="w-0 group-hover:w-6 sm:group-hover:w-8 h-px bg-brand-gold/30 mt-2 sm:mt-3 transition-all duration-700" />
             </div>
           ))}
         </div>

@@ -71,27 +71,27 @@ const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer id="contacts" className="bg-dark-card border-t border-white/[0.03] pt-24 pb-16 relative grain">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+      <footer id="contacts" className="bg-dark-card border-t border-white/[0.03] pt-12 sm:pt-20 lg:pt-24 pb-10 sm:pb-16 relative grain">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 lg:gap-16 mb-12 sm:mb-20">
             <div className="space-y-6">
-              <span className="text-[22px] font-extralight tracking-[0.4em] uppercase text-white/70">Eclipse</span>
-              <p className="text-white/15 text-[13px] leading-relaxed max-w-xs">
+              <span className="text-lg sm:text-[22px] font-extralight tracking-[0.3em] sm:tracking-[0.4em] uppercase text-white/70">Eclipse</span>
+              <p className="text-white/15 text-xs sm:text-sm leading-relaxed max-w-xs">
                 Премиальный стандарт аренды автомобилей в Калининградской области. Свобода, которой вы достойны.
               </p>
               <div className="flex gap-2">
-                <a href="#" className="w-9 h-9 border border-white/[0.06] flex items-center justify-center text-white/20 hover:text-brand-gold/50 hover:border-brand-gold/20 transition-all duration-500">
-                  <Instagram size={15} />
+                <a href="#" className="w-10 h-10 sm:w-9 sm:h-9 border border-white/[0.06] flex items-center justify-center text-white/20 hover:text-brand-gold/50 hover:border-brand-gold/20 transition-all duration-500">
+                  <Instagram size={16} />
                 </a>
-                <a href="#" className="w-9 h-9 border border-white/[0.06] flex items-center justify-center text-white/20 hover:text-brand-gold/50 hover:border-brand-gold/20 transition-all duration-500">
-                  <Send size={15} />
+                <a href="#" className="w-10 h-10 sm:w-9 sm:h-9 border border-white/[0.06] flex items-center justify-center text-white/20 hover:text-brand-gold/50 hover:border-brand-gold/20 transition-all duration-500">
+                  <Send size={16} />
                 </a>
               </div>
             </div>
 
             <div className="space-y-6">
-              <h4 className="text-[10px] text-white/15 uppercase tracking-[0.4em]">Локации</h4>
-              <ul className="space-y-3 text-[13px] text-white/25">
+              <h4 className="text-[10px] sm:text-[11px] text-white/15 uppercase tracking-[0.3em] sm:tracking-[0.4em]">Локации</h4>
+              <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-white/25">
                 {['Аэропорт Храброво', 'Калининград Центр', 'Зеленоградск', 'Светлогорск'].map(loc => (
                   <li key={loc} className="flex items-center gap-2 hover:text-white/40 transition-colors cursor-pointer">
                     <MapPin size={10} className="text-brand-gold/20" /> {loc}
@@ -101,8 +101,8 @@ const App: React.FC = () => {
             </div>
 
             <div className="space-y-6">
-              <h4 className="text-[10px] text-white/15 uppercase tracking-[0.4em]">Клиентам</h4>
-              <ul className="space-y-3 text-[13px] text-white/25">
+              <h4 className="text-[10px] sm:text-[11px] text-white/15 uppercase tracking-[0.3em] sm:tracking-[0.4em]">Клиентам</h4>
+              <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm text-white/25">
                 {['Условия аренды', 'Для бизнеса', 'Клубные карты', 'Франшиза', 'Договор аренды'].map(link => (
                   <li key={link}><a href="#" className="hover:text-white/40 transition-colors">{link}</a></li>
                 ))}
@@ -110,8 +110,8 @@ const App: React.FC = () => {
             </div>
 
             <div className="space-y-5">
-              <h4 className="text-[10px] text-white/15 uppercase tracking-[0.4em]">Связь 24/7</h4>
-              <a href="tel:+79000000000" className="text-xl text-white/60 font-extralight tracking-tight hover:text-brand-gold/70 transition-colors duration-500 block">
+              <h4 className="text-[10px] sm:text-[11px] text-white/15 uppercase tracking-[0.3em] sm:tracking-[0.4em]">Связь 24/7</h4>
+              <a href="tel:+79000000000" className="text-lg sm:text-xl text-white/60 font-extralight tracking-tight hover:text-brand-gold/70 transition-colors duration-500 block">
                 +7 (900) 000-00-00
               </a>
               <div className="flex gap-2">
@@ -129,7 +129,7 @@ const App: React.FC = () => {
           </div>
 
           <div className="gold-line mb-8"></div>
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-5 text-[10px] text-white/10 uppercase tracking-[0.4em]">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-4 sm:gap-5 text-[9px] sm:text-[10px] text-white/10 uppercase tracking-[0.2em] sm:tracking-[0.4em]">
             <p>&copy; 2024 Eclipse Premium. Kaliningrad, Russia.</p>
             <div className="flex gap-8">
               <a href="#" className="hover:text-white/20 transition-colors">Privacy Policy</a>
