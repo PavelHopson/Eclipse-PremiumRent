@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #2BB673;
+  --color-brand-secondary: #FF3B30;
+  --color-brand-text: #111111;
+  --color-brand-muted: #6E6E73;
+  --color-brand-bg: #F7F7F7;
+  --font-size-hero: 48px;
+  --font-size-subtitle: 24px;
+  --font-size-base: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+}
+
+.bg-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #2BB673;
+  box-shadow: 0 0 0 2px rgba(43, 182, 115, 0.1);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideInFromTop { from { transform: translateY(-10px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.animate-in { animation: 0.3s ease-out both; }
+.fade-in { animation-name: fadeIn; }
+.slide-in-from-top-1 { animation-name: slideInFromTop; }
