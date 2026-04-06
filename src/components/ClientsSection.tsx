@@ -10,32 +10,32 @@ export const ClientsSection: React.FC = () => {
           Наши клиенты
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
           {CELEBRITIES.map((client, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: i * 0.12, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: i * 0.08, duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="group"
             >
               {/* Photo */}
-              <div className="aspect-[3/4] overflow-hidden mb-6 relative">
+              <div className="aspect-[4/3] overflow-hidden mb-5 relative">
                 <img
                   src={client.img}
                   alt={client.name}
-                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.03]"
+                  className="w-full h-full object-cover object-top grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-[1.03]"
                 />
-                {/* Subtle border overlay */}
+                {/* Border overlay */}
                 <div className="absolute inset-0 border border-white/[0.04] pointer-events-none group-hover:border-brand-gold/10 transition-colors duration-700"></div>
                 {/* Bottom gradient */}
-                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
               </div>
 
               {/* Info */}
-              <h4 className="text-white/80 text-[15px] font-medium mb-1.5 tracking-tight">{client.name}</h4>
-              <p className="text-white/25 text-[12px] leading-relaxed">{client.role}</p>
+              <h4 className="text-white/80 text-[14px] font-medium mb-1 tracking-tight">{client.name}</h4>
+              <p className="text-white/20 text-[11px] leading-relaxed line-clamp-2">{client.role}</p>
             </motion.div>
           ))}
         </div>

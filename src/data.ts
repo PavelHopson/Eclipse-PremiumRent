@@ -556,25 +556,49 @@ export const CELEBRITIES: Celebrity[] = [
     name: 'Александр Овечкин',
     role: 'Хоккеист, капитан клуба НХЛ «Вашингтон Кэпиталз».',
     text: 'Eclipse — это уровень. Новые машины и безупречный сервис.',
-    img: 'https://img.championat.com/s/735x490/news/big/s/u/u-ovechkina-novyj-rekord-v-nhl-on-obognal-vseh-legend_16159187121689531853.jpg'
+    img: 'https://carloson.ru/uploads/images/b58f107f4a4aa854c96ebb575b5942a3-1900x1080.jpg'
   },
   {
     name: 'Wylsacom',
     role: 'Видеоблогер. Создатель YouTube-канала с аудиторией более 10 млн подписчиков.',
     text: 'Протестировал Zeekr на косе. Эмоции и сервис на высоте.',
-    img: 'https://v-petuhov.ru/wp-content/uploads/2021/03/wylsacom-valentit-petuhov-foto.jpg'
+    img: 'https://carloson.ru/uploads/images/67005911e5c3e1cc01c7b05b4c6483b4-1900x1080.jpg'
   },
   {
     name: 'Пётр Ян',
     role: 'Боец MMA. Чемпион UFC в легчайшем весе.',
     text: 'Надежность и скорость. Ребята из Eclipse закрывают все вопросы.',
-    img: 'https://mma.metaratings.ru/storage/images/2b/cb/2bcb9129e924d55079a4da9003889608.jpg'
+    img: 'https://carloson.ru/uploads/images/25488759a2d3d70f28854be0fd3dd17a-1900x1080.jpg'
   },
   {
     name: 'Юлия Зиверт',
     role: 'Певица. Лауреат «Russian Music Awards», «Золотой граммофон», «Муз-ТВ».',
     text: 'Люблю комфорт и красивые авто. В Калининграде — только Eclipse.',
-    img: 'https://graziamagazine.ru/upload/img_cache/006/006b50b55481ca6984e1b4337a858e98_ce_1080x720x0x0_cropped_666x444.jpg'
+    img: 'https://carloson.ru/uploads/images/IMG_2436-1900x1080.jpg'
+  },
+  {
+    name: 'Алина Загитова',
+    role: 'Фигуристка. Олимпийская чемпионка 2018, чемпионка мира.',
+    text: 'Идеальный сервис для тех, кто привык к лучшему.',
+    img: 'https://carloson.ru/uploads/images/IMG_9643-1900x1080.jpg'
+  },
+  {
+    name: 'Александра Трусова',
+    role: 'Фигуристка. Серебряный призёр Олимпийских игр 2022.',
+    text: 'Быстрые машины и Балтийское побережье — лучшее сочетание.',
+    img: 'https://carloson.ru/uploads/images/%D0%A2%D1%80%D1%83%D1%81%D0%BE%D0%B2%D0%B0-1900x1080.jpg'
+  },
+  {
+    name: 'Карина Кросс',
+    role: 'Блогер. Более 30 млн подписчиков в социальных сетях.',
+    text: 'В Калининграде всегда беру авто в Eclipse. Рекомендую.',
+    img: 'https://carloson.ru/uploads/images/DSCF3385-1900x1080.jpg'
+  },
+  {
+    name: 'Дмитрий Орлов',
+    role: 'Хоккеист НХЛ. Обладатель Кубка Стэнли.',
+    text: 'Премиальный автопарк и сервис мирового уровня.',
+    img: 'https://carloson.ru/uploads/images/7b389853f82ebc2123e03bfe43374e6d-1900x1080.jpg'
   }
 ];
 

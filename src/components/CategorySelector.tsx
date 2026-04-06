@@ -8,13 +8,13 @@ interface CategorySelectorProps {
 }
 
 const CATEGORY_IMAGES: Record<string, string> = {
-  'Внедорожники': 'https://images.unsplash.com/photo-1651950519238-15835722f8bb?q=80&w=400&auto=format&fit=crop',
-  'Премиум': 'https://images.unsplash.com/photo-1563720360172-67b8f3dce741?q=80&w=400&auto=format&fit=crop',
-  'Бизнес': 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=400&auto=format&fit=crop',
-  'Спорткары': 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=400&auto=format&fit=crop',
-  'Минивэны': 'https://images.unsplash.com/photo-1559038465-e0ca2910b298?q=80&w=400&auto=format&fit=crop',
-  'Комфорт': 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=400&auto=format&fit=crop',
-  'Электромобили': 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=400&auto=format&fit=crop',
+  'Внедорожники': 'https://carloson.ru/uploads/images/1305c8bd676f3da9d1d81a28396bd81c-179x139.png',
+  'Премиум': 'https://carloson.ru/uploads/images/bf92c039ee2d828b9e71c0dc1d468ce4-179x139.png',
+  'Бизнес': 'https://carloson.ru/uploads/images/5655e0f3747fc23ca85fdd54bf157662-179x139.png',
+  'Спорткары': 'https://carloson.ru/uploads/images/3d1c7e44c67672183b3e716fa56e32e7-179x139.png',
+  'Минивэны': 'https://carloson.ru/uploads/images/1305c8bd676f3da9d1d81a28396bd81c-179x139.png',
+  'Комфорт': 'https://carloson.ru/uploads/images/61a41967152d358192bb2c3a8009770f-179x139.png',
+  'Электромобили': 'https://carloson.ru/uploads/images/5655e0f3747fc23ca85fdd54bf157662-179x139.png',
 };
 
 export const CategorySelector: React.FC<CategorySelectorProps> = ({ onSelect }) => {
