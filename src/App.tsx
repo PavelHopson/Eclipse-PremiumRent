@@ -8,6 +8,10 @@ import { CategorySelector } from './components/CategorySelector';
 import { CarCarousel } from './components/CarCarousel';
 import { ClientsSection } from './components/ClientsSection';
 import { InfoSection } from './components/InfoSection';
+import { PromoBanner } from './components/PromoBanner';
+import { RoutesSection } from './components/RoutesSection';
+import { FAQ } from './components/FAQ';
+import { FloatingContacts } from './components/FloatingContacts';
 import { CAR_CLASSES, CarClass } from './types';
 import { Instagram, Send, MapPin } from 'lucide-react';
 
@@ -37,6 +41,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-dark">
       <Navbar onCatalogClick={scrollToFleet} />
+      <FloatingContacts />
 
       <main>
         {booking.step === 1 ? (
@@ -54,8 +59,11 @@ const App: React.FC = () => {
               ))}
             </div>
 
+            <PromoBanner />
             <ClientsSection />
+            <RoutesSection />
             <InfoSection />
+            <FAQ />
           </>
         ) : (
           <BookingWizard />
@@ -66,7 +74,6 @@ const App: React.FC = () => {
       <footer id="contacts" className="bg-dark-card border-t border-white/[0.03] pt-24 pb-16 relative grain">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
-            {/* Brand */}
             <div className="space-y-6">
               <span className="text-[22px] font-extralight tracking-[0.4em] uppercase text-white/70">Eclipse</span>
               <p className="text-white/15 text-[13px] leading-relaxed max-w-xs">
@@ -82,7 +89,6 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Locations */}
             <div className="space-y-6">
               <h4 className="text-[10px] text-white/15 uppercase tracking-[0.4em]">Локации</h4>
               <ul className="space-y-3 text-[13px] text-white/25">
@@ -94,38 +100,41 @@ const App: React.FC = () => {
               </ul>
             </div>
 
-            {/* Links */}
             <div className="space-y-6">
               <h4 className="text-[10px] text-white/15 uppercase tracking-[0.4em]">Клиентам</h4>
               <ul className="space-y-3 text-[13px] text-white/25">
-                {['Условия аренды', 'Для бизнеса', 'Клубные карты', 'Франшиза'].map(link => (
+                {['Условия аренды', 'Для бизнеса', 'Клубные карты', 'Франшиза', 'Договор аренды'].map(link => (
                   <li key={link}><a href="#" className="hover:text-white/40 transition-colors">{link}</a></li>
                 ))}
               </ul>
             </div>
 
-            {/* Contact */}
             <div className="space-y-5">
               <h4 className="text-[10px] text-white/15 uppercase tracking-[0.4em]">Связь 24/7</h4>
               <a href="tel:+79000000000" className="text-xl text-white/60 font-extralight tracking-tight hover:text-brand-gold/70 transition-colors duration-500 block">
                 +7 (900) 000-00-00
               </a>
+              <div className="flex gap-2">
+                <a href="https://wa.me/79000000000" className="text-[11px] text-white/20 border border-white/[0.06] px-3 py-1.5 hover:text-brand-gold/40 hover:border-brand-gold/15 transition-all">WhatsApp</a>
+                <a href="https://t.me/eclipse_rent" className="text-[11px] text-white/20 border border-white/[0.06] px-3 py-1.5 hover:text-brand-gold/40 hover:border-brand-gold/15 transition-all">Telegram</a>
+              </div>
               <p className="text-brand-gold/30 text-[11px] uppercase tracking-[0.3em]">hello@eclipse-rent.ru</p>
               <div className="pt-4 border-t border-white/[0.03]">
                 <p className="text-white/10 text-[12px] leading-relaxed">
-                  г. Калининград, Площадь Победы, 10
+                  г. Калининград, Площадь Победы, 10<br />
+                  Ежедневно, 10:00 — 21:00
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Bottom */}
           <div className="gold-line mb-8"></div>
           <div className="flex flex-col lg:flex-row justify-between items-center gap-5 text-[10px] text-white/10 uppercase tracking-[0.4em]">
             <p>&copy; 2024 Eclipse Premium. Kaliningrad, Russia.</p>
             <div className="flex gap-8">
               <a href="#" className="hover:text-white/20 transition-colors">Privacy Policy</a>
               <a href="#" className="hover:text-white/20 transition-colors">Legal Terms</a>
+              <a href="#" className="hover:text-white/20 transition-colors">Договор аренды</a>
             </div>
           </div>
         </div>
