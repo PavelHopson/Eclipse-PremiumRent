@@ -1,5 +1,4 @@
-
-export type CarClass = 'Эконом' | 'Комфорт' | 'Бизнес' | 'Премиум' | 'Внедорожник' | 'Электромобили' | 'Спорткары';
+export type CarClass = 'Внедорожники' | 'Премиум' | 'Бизнес' | 'Спорткары' | 'Минивэны' | 'Комфорт' | 'Электромобили';
 export type Transmission = 'Автомат' | 'Механика';
 
 export interface Car {
@@ -14,8 +13,15 @@ export interface Car {
   year: number;
   images: string[];
   features: string[];
-  isPopular?: boolean;
+  isNew?: boolean;
   isHotDeal?: boolean;
+}
+
+export interface Celebrity {
+  name: string;
+  role: string;
+  text: string;
+  img: string;
 }
 
 export interface BookingState {
@@ -39,4 +45,14 @@ export const LOCATIONS: Location[] = [
   'Калининград Центр',
   'Зеленоградск',
   'Светлогорск'
+];
+
+export const CAR_CLASSES: CarClass[] = [
+  'Внедорожники',
+  'Премиум',
+  'Бизнес',
+  'Спорткары',
+  'Минивэны',
+  'Комфорт',
+  'Электромобили'
 ];

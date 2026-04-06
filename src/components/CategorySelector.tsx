@@ -1,45 +1,46 @@
-
 import React from 'react';
-import { motion } from 'framer-motion';
+import { CAR_CLASSES } from '../types';
+import type { CarClass } from '../types';
 
 interface CategorySelectorProps {
-  onSelect?: () => void;
+  onSelect?: (category: CarClass) => void;
 }
 
-const CATEGORIES = [
-  { name: 'Внедорожники', img: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=400&auto=format&fit=crop' },
-  { name: 'Премиум', img: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=400&auto=format&fit=crop' },
-  { name: 'Бизнес', img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=400&auto=format&fit=crop' },
-  { name: 'Спорткары', img: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=400&auto=format&fit=crop' },
-  { name: 'Минивэны', img: 'https://images.unsplash.com/photo-1517672685839-01c907727376?q=80&w=400&auto=format&fit=crop' },
-  { name: 'Электро', img: 'https://images.unsplash.com/photo-1619767886558-efdc259cde1a?q=80&w=400&auto=format&fit=crop' },
-];
+const CATEGORY_IMAGES: Record<string, string> = {
+  'Внедорожники': 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=400&auto=format&fit=crop',
+  'Премиум': 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=400&auto=format&fit=crop',
+  'Бизнес': 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=400&auto=format&fit=crop',
+  'Спорткары': 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=400&auto=format&fit=crop',
+  'Минивэны': 'https://images.unsplash.com/photo-1517672685839-01c907727376?q=80&w=400&auto=format&fit=crop',
+  'Комфорт': 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?q=80&w=400&auto=format&fit=crop',
+  'Электромобили': 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=400&auto=format&fit=crop',
+};
 
 export const CategorySelector: React.FC<CategorySelectorProps> = ({ onSelect }) => {
   return (
-    <section className="py-24 bg-[#0a0a0a] text-white overflow-hidden border-b border-white/5">
-      <div className="max-w-[1600px] mx-auto px-6">
-        <h2 className="text-center text-[10px] font-black tracking-[0.6em] mb-20 text-white/30 uppercase">Категории транспорта</h2>
-        <div className="flex justify-between items-center gap-12 overflow-x-auto pb-12 hide-scrollbar">
-          {CATEGORIES.map((cat, i) => (
-            <motion.div 
-              key={cat.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.8 }}
-              onClick={onSelect}
-              className="flex flex-col items-center group cursor-pointer min-w-[180px]"
+    <section className="py-16 bg-dark border-y border-dark-border">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-10">
+        <h2 className="text-center text-white/40 text-lg sm:text-xl font-light italic tracking-wide mb-14">
+          Категории автомобилей
+        </h2>
+        <div className="flex justify-between items-end gap-4 overflow-x-auto pb-4 hide-scrollbar">
+          {CAR_CLASSES.map((cat) => (
+            <div
+              key={cat}
+              onClick={() => onSelect?.(cat)}
+              className="flex flex-col items-center group cursor-pointer min-w-[140px] flex-1"
             >
-              <div className="w-48 h-28 mb-8 relative">
-                <img 
-                  src={cat.img} 
-                  className="w-full h-full object-contain grayscale brightness-[0.4] group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-110 transition-all duration-1000 ease-out"
-                  alt={cat.name}
+              <div className="w-40 h-20 mb-4 relative flex items-center justify-center">
+                <img
+                  src={CATEGORY_IMAGES[cat]}
+                  className="w-full h-full object-contain brightness-[0.25] grayscale group-hover:brightness-[0.6] group-hover:grayscale-0 transition-all duration-700"
+                  alt={cat}
                 />
               </div>
-              <span className="text-[14px] font-black uppercase tracking-[0.3em] text-white/30 group-hover:text-brand-primary transition-all duration-500">{cat.name}</span>
-              <div className="w-0 group-hover:w-12 h-1 bg-brand-primary mt-4 transition-all duration-700"></div>
-            </motion.div>
+              <span className="text-sm text-white/35 group-hover:text-brand-gold transition-colors duration-500 tracking-wide">
+                {cat}
+              </span>
+            </div>
           ))}
         </div>
       </div>

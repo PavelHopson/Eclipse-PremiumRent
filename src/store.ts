@@ -1,6 +1,5 @@
-
 import { create } from 'zustand';
-import { BookingState } from './types';
+import { BookingState, CarClass } from './types';
 
 interface AppStore {
   booking: BookingState;
@@ -9,6 +8,8 @@ interface AppStore {
   prevStep: () => void;
   resetBooking: () => void;
   goToStep: (step: number) => void;
+  activeCategory: CarClass | null;
+  setActiveCategory: (cat: CarClass | null) => void;
 }
 
 export const useStore = create<AppStore>((set) => ({
@@ -21,14 +22,14 @@ export const useStore = create<AppStore>((set) => ({
     extras: [],
     customer: { name: '', phone: '', email: '' }
   },
-  setBooking: (update) => set((state) => ({ 
-    booking: { ...state.booking, ...update } 
+  setBooking: (update) => set((state) => ({
+    booking: { ...state.booking, ...update }
   })),
-  nextStep: () => set((state) => ({ 
-    booking: { ...state.booking, step: state.booking.step + 1 } 
+  nextStep: () => set((state) => ({
+    booking: { ...state.booking, step: state.booking.step + 1 }
   })),
-  prevStep: () => set((state) => ({ 
-    booking: { ...state.booking, step: Math.max(1, state.booking.step - 1) } 
+  prevStep: () => set((state) => ({
+    booking: { ...state.booking, step: Math.max(1, state.booking.step - 1) }
   })),
   goToStep: (step) => set((state) => ({
     booking: { ...state.booking, step }
@@ -43,5 +44,7 @@ export const useStore = create<AppStore>((set) => ({
       extras: [],
       customer: { name: '', phone: '', email: '' }
     }
-  })
+  }),
+  activeCategory: null,
+  setActiveCategory: (cat) => set({ activeCategory: cat }),
 }));

@@ -1,7 +1,8 @@
-
 import React, { useState } from 'react';
 import { useStore } from '../store';
-import { ChevronDown, Heart, Globe, User, Menu, ArrowRight } from 'lucide-react';
+import { BRANDS, CATEGORY_COUNTS } from '../data';
+import { CAR_CLASSES } from '../types';
+import { ChevronDown, Heart, Globe, Menu, ArrowRight, X, Phone } from 'lucide-react';
 
 interface NavbarProps {
   onCatalogClick?: () => void;
@@ -10,101 +11,97 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onCatalogClick }) => {
   const { resetBooking } = useStore();
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-
-  const categories = [
-    { name: 'Внедорожники', count: 12 },
-    { name: 'Премиум', count: 8 },
-    { name: 'Бизнес', count: 15 },
-    { name: 'Комфорт', count: 20 },
-    { name: 'Электромобили', count: 5 },
-  ];
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav 
-      className="fixed top-0 left-0 right-0 z-50 bg-[#111111]/90 backdrop-blur-2xl border-b border-white/5 text-white"
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-xl border-b border-dark-border"
       onMouseLeave={() => setActiveMenu(null)}
     >
-      <div className="max-w-[1600px] mx-auto px-6 h-24 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-3 cursor-pointer group" onClick={resetBooking}>
-          <div className="w-12 h-12 bg-brand-primary rounded-2xl flex items-center justify-center text-white font-black text-2xl italic transition-transform group-hover:scale-105 shadow-lg shadow-brand-primary/20">L</div>
-          <span className="text-2xl font-black tracking-tighter uppercase hidden sm:inline">Lite<span className="text-brand-primary">Rent</span></span>
+        <div className="flex items-center cursor-pointer group" onClick={resetBooking}>
+          <span className="text-2xl font-light tracking-[0.35em] uppercase text-white/90 group-hover:text-brand-gold transition-colors">
+            Eclipse
+          </span>
         </div>
 
         {/* Main Links */}
         <div className="hidden lg:flex items-center gap-10 h-full">
-          <div 
-            className="h-full flex items-center gap-2 cursor-pointer hover:text-brand-primary transition-colors font-black text-[11px] uppercase tracking-[0.2em] relative"
+          <div
+            className="h-full flex items-center gap-2 cursor-pointer hover:text-brand-gold transition-colors text-[15px] tracking-wide text-white/80"
             onMouseEnter={() => setActiveMenu('fleet')}
             onClick={onCatalogClick}
           >
             Автопарк <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === 'fleet' ? 'rotate-180' : ''}`} />
           </div>
-          <div 
-            className="h-full flex items-center gap-2 cursor-pointer hover:text-brand-primary transition-colors font-black text-[11px] uppercase tracking-[0.2em] relative"
+          <div
+            className="h-full flex items-center gap-2 cursor-pointer hover:text-brand-gold transition-colors text-[15px] tracking-wide text-white/80"
             onMouseEnter={() => setActiveMenu('services')}
           >
             Услуги <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === 'services' ? 'rotate-180' : ''}`} />
           </div>
-          <a href="#" className="hover:text-brand-primary transition-colors font-black text-[11px] uppercase tracking-[0.2em]">Условия</a>
-          <a href="#" className="hover:text-brand-primary transition-colors font-black text-[11px] uppercase tracking-[0.2em]">Контакты</a>
+          <a href="#conditions" className="hover:text-brand-gold transition-colors text-[15px] tracking-wide text-white/80">Условия</a>
+          <a href="#contacts" className="hover:text-brand-gold transition-colors text-[15px] tracking-wide text-white/80">Контакты</a>
         </div>
 
         {/* Right Actions */}
-        <div className="flex items-center gap-6">
-          <div className="hidden xl:flex items-center gap-6 border-r border-white/10 pr-10 mr-4">
-            <div className="flex items-center gap-3">
-              <div className="w-6 h-6 bg-red-600 rounded-lg flex items-center justify-center text-[10px] font-black italic">Я</div>
-              <span className="text-[14px] font-black">5.0</span>
+        <div className="flex items-center gap-5">
+          <div className="hidden xl:flex items-center gap-5 border-r border-white/10 pr-6 mr-2">
+            <div className="flex items-center gap-2">
+              <div className="w-7 h-7 bg-red-600 rounded-lg flex items-center justify-center text-[10px] font-bold text-white">Я</div>
+              <span className="text-sm font-semibold text-white/80">5.0</span>
             </div>
             <div className="flex items-center gap-2 cursor-pointer group">
-              <Globe size={18} className="text-brand-primary group-hover:scale-110 transition-transform" />
-              <span className="text-[12px] font-black uppercase tracking-widest">Калининград</span>
+              <Globe size={16} className="text-brand-gold/70 group-hover:text-brand-gold transition-colors" />
+              <span className="text-sm text-white/60 group-hover:text-white/80 transition-colors">Калининград</span>
             </div>
           </div>
-          
-          <div className="hidden sm:flex flex-col items-end">
-            <a href="tel:+79000000000" className="text-xl font-black tracking-tighter">+7 (900) 000-00-00</a>
-            <span className="text-[10px] font-black text-brand-primary uppercase tracking-[0.3em]">Support 24/7</span>
+
+          <div className="hidden sm:flex items-center gap-2 cursor-pointer group">
+            <Heart size={18} className="text-white/40 group-hover:text-brand-gold transition-colors" />
           </div>
-          
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center cursor-pointer hover:bg-white/5 transition-all group">
-              <Heart size={20} className="group-hover:text-brand-secondary transition-colors" />
-            </div>
-            <div className="w-12 h-12 rounded-2xl bg-brand-primary flex items-center justify-center cursor-pointer hover:brightness-110 transition-all shadow-lg shadow-brand-primary/20">
-              <User size={20} className="text-white" />
-            </div>
-            <div className="lg:hidden w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center">
-              <Menu size={20} />
-            </div>
+
+          <div className="hidden md:flex flex-col items-end">
+            <a href="tel:+79000000000" className="text-[15px] font-semibold text-white/90 hover:text-brand-gold transition-colors tracking-tight">
+              +7 (900) 000-00-00
+            </a>
+            <span className="text-[10px] text-white/30 tracking-widest uppercase">работаем 24/7</span>
+          </div>
+
+          <div className="lg:hidden">
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="w-10 h-10 flex items-center justify-center text-white/60">
+              {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Mega Menu Dropdowns */}
+      {/* Mega Menu — Автопарк */}
       {activeMenu === 'fleet' && (
-        <div className="absolute top-24 left-0 right-0 bg-[#0a0a0a] border-b border-white/5 py-16 animate-in fade-in slide-in-from-top-2 shadow-2xl">
-          <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-12 gap-20">
-            <div className="col-span-3 border-r border-white/5 pr-20">
-              <h3 className="text-[10px] font-black text-brand-primary uppercase tracking-[0.4em] mb-10">По классу</h3>
-              <ul className="space-y-6">
-                {categories.map(cat => (
-                  <li key={cat.name} className="flex justify-between items-center group cursor-pointer" onClick={onCatalogClick}>
-                    <span className="text-xl font-bold group-hover:text-brand-primary transition-colors tracking-tight">{cat.name}</span>
-                    <span className="text-xs font-black text-white/20 group-hover:text-brand-primary/40 transition-colors">{cat.count}</span>
+        <div className="absolute top-20 left-0 right-0 bg-dark border-b border-dark-border animate-slide-down">
+          <div className="max-w-[1400px] mx-auto px-10 py-12 grid grid-cols-12 gap-16">
+            <div className="col-span-3 border-r border-dark-border pr-10">
+              <h3 className="text-xs font-semibold text-brand-gold/60 uppercase tracking-[0.3em] mb-8">Класс</h3>
+              <ul className="space-y-1">
+                {CAR_CLASSES.map(cls => (
+                  <li key={cls} className="flex justify-between items-center group cursor-pointer py-3 px-4 rounded-lg hover:bg-white/[0.03] transition-colors" onClick={onCatalogClick}>
+                    <span className="text-[15px] text-white/70 group-hover:text-white transition-colors">{cls}</span>
+                    <span className="text-xs text-white/20 group-hover:text-brand-gold/50 transition-colors">({CATEGORY_COUNTS[cls] || 0})</span>
                   </li>
                 ))}
               </ul>
-              <button onClick={onCatalogClick} className="mt-16 w-full bg-white text-black py-5 rounded-[20px] font-black text-[11px] uppercase tracking-[0.2em] hover:bg-brand-primary hover:text-white transition-all shadow-xl">Смотреть все</button>
+              <button onClick={onCatalogClick} className="mt-8 w-full border border-white/15 text-white/70 py-3.5 rounded-lg text-xs uppercase tracking-[0.2em] hover:bg-brand-primary hover:border-brand-primary hover:text-white transition-all">
+                Весь автопарк
+              </button>
             </div>
             <div className="col-span-9">
-              <h3 className="text-[10px] font-black text-brand-primary uppercase tracking-[0.4em] mb-10">Марки в наличии</h3>
-              <div className="grid grid-cols-4 gap-y-10 gap-x-12">
-                {['BMW', 'Mercedes-Benz', 'Audi', 'Skoda', 'Kia', 'Hyundai', 'Porsche', 'Land Rover', 'Zeekr', 'Tesla', 'Lamborghini', 'Exeed'].map(brand => (
-                  <div key={brand} className="flex justify-between items-center group cursor-pointer pb-4 border-b border-white/5 hover:border-brand-primary/40 transition-all">
-                    <span className="text-lg font-bold group-hover:text-brand-primary transition-colors tracking-tight">{brand}</span>
-                    <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-brand-primary" />
+              <h3 className="text-xs font-semibold text-brand-gold/60 uppercase tracking-[0.3em] mb-8">Марки</h3>
+              <div className="grid grid-cols-4 gap-x-10 gap-y-1">
+                {BRANDS.map(brand => (
+                  <div key={brand} className="flex justify-between items-center group cursor-pointer py-3 px-4 rounded-lg hover:bg-white/[0.03] transition-colors">
+                    <span className="text-[15px] text-white/60 group-hover:text-white transition-colors">{brand}</span>
+                    <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-gold/50" />
                   </div>
                 ))}
               </div>
@@ -113,18 +110,37 @@ export const Navbar: React.FC<NavbarProps> = ({ onCatalogClick }) => {
         </div>
       )}
 
+      {/* Mega Menu — Услуги */}
       {activeMenu === 'services' && (
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 bg-[#151515] border border-white/5 p-2 rounded-3xl shadow-2xl animate-in fade-in slide-in-from-top-1 min-w-[340px]">
-          <ul className="space-y-1">
+        <div className="absolute top-20 left-1/2 -translate-x-1/2 bg-dark border border-dark-border rounded-xl p-2 animate-slide-down min-w-[320px]">
+          <ul>
             {['Аренда по подписке', 'Аренда с водителем', 'Для юридических лиц', 'Клубные карты', 'Аренда с выкупом'].map(service => (
               <li key={service}>
-                <a href="#" className="flex items-center justify-between px-8 py-5 rounded-2xl hover:bg-white/5 transition-all group">
-                  <span className="font-bold text-sm tracking-tight">{service}</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-all text-brand-primary" />
+                <a href="#" className="flex items-center justify-between px-6 py-4 rounded-lg hover:bg-white/[0.04] transition-colors group">
+                  <span className="text-[15px] text-white/70 group-hover:text-white transition-colors">{service}</span>
+                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity text-brand-gold/50" />
                 </a>
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {/* Mobile Menu */}
+      {mobileOpen && (
+        <div className="lg:hidden absolute top-20 left-0 right-0 bg-dark border-b border-dark-border animate-slide-down">
+          <div className="px-6 py-8 space-y-6">
+            <button onClick={() => { onCatalogClick?.(); setMobileOpen(false); }} className="block text-lg text-white/80 hover:text-brand-gold transition-colors">Автопарк</button>
+            <a href="#" className="block text-lg text-white/80 hover:text-brand-gold transition-colors">Услуги</a>
+            <a href="#conditions" className="block text-lg text-white/80 hover:text-brand-gold transition-colors">Условия</a>
+            <a href="#contacts" className="block text-lg text-white/80 hover:text-brand-gold transition-colors">Контакты</a>
+            <div className="pt-6 border-t border-dark-border">
+              <a href="tel:+79000000000" className="flex items-center gap-3 text-brand-gold">
+                <Phone size={18} />
+                <span className="text-lg font-semibold">+7 (900) 000-00-00</span>
+              </a>
+            </div>
+          </div>
         </div>
       )}
     </nav>
