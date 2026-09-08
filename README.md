@@ -1,37 +1,45 @@
-<div align="center">
+# Eclipse Premium Rent
 
-<br>
+![Eclipse Premium Rent: Автопарк → Выбор → Заявка](docs/assets/repository-cover.svg)
 
-<img src="https://img.shields.io/badge/E-ECLIPSE-C9A96E?style=for-the-badge&labelColor=0a0a0a&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNDOUE5NkUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIvPjwvc3ZnPg==&logoColor=C9A96E" height="40" alt="Eclipse"/>
+**Веб-витрина.** Витрина премиальной аренды автомобилей в Калининграде: каталог и путь к заявке.
 
-# ECLIPSE PREMIUM RENT
+<!-- repository-guide:start -->
+[Первый запуск](#readme-start) · [Что внутри](#readme-map) · [Путеводитель](docs/repository-guide.md#start) · [Карта кода](docs/repository-guide.md#map) · [Проверки](docs/repository-guide.md#checks) · [Границы и права](docs/repository-guide.md#boundaries)
 
-### Премиальная аренда автомобилей в Калининграде
+<a id="readme-map"></a>
 
-<br>
+## Проект за минуту
 
-[![Live Demo](https://img.shields.io/badge/▶_LIVE_DEMO-eclipse--premiumrent.pages.dev-2BB673?style=for-the-badge&labelColor=0a0a0a)](https://eclipse-premiumrent.pages.dev)
+- **[Автопарк](<src/data.ts>)** — Контент каталога автомобилей.
+- **[Заявка](<src/components/BookingWizard.tsx>)** — Интерфейс пошагового выбора параметров аренды.
+- **[Состояние выбора](<src/store.ts>)** — Клиентское состояние витрины.
 
-<br>
+<a id="readme-start"></a>
 
-[![React](https://img.shields.io/badge/React_19-0a0a0a?style=flat-square&logo=react&logoColor=61DAFB)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-0a0a0a?style=flat-square&logo=typescript&logoColor=3178C6)](https://typescriptlang.org)
-[![Vite](https://img.shields.io/badge/Vite_6-0a0a0a?style=flat-square&logo=vite&logoColor=646CFF)](https://vite.dev)
-[![Tailwind](https://img.shields.io/badge/Tailwind_4-0a0a0a?style=flat-square&logo=tailwindcss&logoColor=06B6D4)](https://tailwindcss.com)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0a0a0a?style=flat-square&logo=framer&logoColor=white)](https://motion.dev)
-[![Cloudflare](https://img.shields.io/badge/Cloudflare_Pages-0a0a0a?style=flat-square&logo=cloudflarepages&logoColor=F38020)](https://pages.cloudflare.com)
+## Начать локально
 
-<br>
+**Среда:** Node.js и npm. **Источник:** [package.json](<package.json>).
 
-<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop" width="100%" alt="Eclipse Premium Rent — Hero" style="border-radius: 4px;"/>
+Из корня клонированного репозитория:
 
-</div>
+```bash
+npm ci
+npm run dev
+```
 
-<br>
+Запуск сервера разработки не выполняет публикацию. Проверьте настройки окружения и основной пользовательский сценарий перед выпуском.
 
----
+<details>
+<summary><strong>Перед первым запуском и изменением кода</strong></summary>
 
-<br>
+- Команды сверены с исходниками 8 сентября 2026. Это инструкция, а не отметка об успешном запуске или текущем production.
+- Установка зависимостей может обращаться в registry и выполнять lifecycle scripts. Используйте отдельную рабочую среду и демонстрационные данные.
+- Цены, доступность автомобилей и отзывы перед публикацией проверяются владельцем бизнеса; UI не подтверждает реальное бронирование.
+
+
+</details>
+<!-- repository-guide:end -->
 
 ## О проекте
 
@@ -184,12 +192,9 @@ npm run preview
 
 <br>
 
-## Производительность
+## Проверка производительности
 
-- **Build size:** CSS 36 KB · JS 382 KB (gzipped: 6.7 + 119 KB)
-- **Build time:** ~3 секунды
-- **First paint:** < 1.5s на Cloudflare CDN
-- **Lighthouse:** оптимизировано для Core Web Vitals
+Размер bundle и время сборки измеряйте для конкретного commit через `npm run build`. Скорость страницы проверяйте отдельно на выбранном устройстве и соединении. Прежние численные оценки не снабжены воспроизводимым отчётом и не используются как актуальные показатели проекта.
 
 <br>
 
