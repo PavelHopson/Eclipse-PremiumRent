@@ -1,5 +1,9 @@
 # Eclipse Premium Rent
 
+<!-- project-links:start -->
+[Открыть веб-версию](https://eclipse-premiumrent.pages.dev) · [Документация](docs/repository-guide.md) · [Код](https://github.com/PavelHopson/Eclipse-PremiumRent/tree/main) · [История изменений](https://github.com/PavelHopson/Eclipse-PremiumRent/commits/main/)
+<!-- project-links:end -->
+
 ![Eclipse Premium Rent: Автопарк → Выбор → Заявка](docs/assets/repository-cover.svg)
 
 **Веб-витрина.** Витрина премиальной аренды автомобилей в Калининграде: каталог и путь к заявке.
