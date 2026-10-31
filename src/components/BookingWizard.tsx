@@ -6,6 +6,13 @@ import { CarCard } from './CarCard';
 import { CheckCircle2, ChevronLeft, CreditCard, ShieldCheck, User, Info, Calendar as CalendarIcon, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const EXTRA_OPTIONS = [
+                  { id: 'seat', name: 'Детское кресло', price: 500, desc: 'ISOFIX крепления, до 36кг' },
+                  { id: 'ins', name: 'Полная страховка', price: 1500, desc: 'Нулевая франшиза при ДТП' },
+                  { id: 'nav', name: 'Premium Навигатор', price: 300, desc: 'Карты области offline' },
+                  { id: 'sec', name: 'Второй водитель', price: 500, desc: 'Право управления для друга' }
+                ];
+
 export const BookingWizard: React.FC = () => {
   const { booking, nextStep, prevStep, setBooking, resetBooking } = useStore();
   const [formError, setFormError] = useState('');
@@ -21,7 +28,7 @@ export const BookingWizard: React.FC = () => {
 
   const days = calculateDays();
   const basePrice = currentCar ? currentCar.pricePerDay * days : 0;
-  const extrasPrice = booking.extras.length * 500 * days;
+  const extrasPrice = booking.extras.reduce((sum, id) => sum + (EXTRA_OPTIONS.find(option => option.id === id)?.price ?? 0), 0) * days;
   const totalPrice = basePrice + extrasPrice;
 
   const steps = [
@@ -29,7 +36,7 @@ export const BookingWizard: React.FC = () => {
     { title: 'Авто', icon: <CheckCircle2 size={16} /> },
     { title: 'Опции', icon: <ShieldCheck size={16} /> },
     { title: 'Данные', icon: <User size={16} /> },
-    { title: 'Оплата', icon: <CreditCard size={16} /> }
+    { title: 'Итог', icon: <CreditCard size={16} /> }
   ];
 
   const handleSelectCar = (id: string) => {
@@ -55,6 +62,7 @@ export const BookingWizard: React.FC = () => {
 
   return (
     <div className="max-w-[1200px] mx-auto px-6 py-28 min-h-[80vh]">
+      <p role="status" className="mb-8 border border-brand-gold/30 p-4 text-sm leading-relaxed text-white/80">Демонстрация: данные не отправляются, бронирование и оплата не подключены. Не вводите настоящие персональные данные.</p>
       {/* Progress */}
       <div className="flex justify-between items-center mb-16 max-w-3xl mx-auto overflow-x-auto hide-scrollbar py-4">
         {steps.map((s, i) => (
@@ -128,15 +136,14 @@ export const BookingWizard: React.FC = () => {
             <div className="lg:col-span-8 space-y-8">
               <h2 className="text-white/90 text-2xl font-light">Дополнительные услуги</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  { id: 'seat', name: 'Детское кресло', price: 500, desc: 'ISOFIX крепления, до 36кг' },
-                  { id: 'ins', name: 'Полная страховка', price: 1500, desc: 'Нулевая франшиза при ДТП' },
-                  { id: 'nav', name: 'Premium Навигатор', price: 300, desc: 'Карты области offline' },
-                  { id: 'sec', name: 'Второй водитель', price: 500, desc: 'Право управления для друга' }
-                ].map(opt => (
+                {EXTRA_OPTIONS.map(opt => (
                   <div
                     key={opt.id}
+                    role="button"
+                    tabIndex={0}
+                    aria-pressed={booking.extras.includes(opt.id)}
                     onClick={() => toggleExtra(opt.id)}
+                    onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggleExtra(opt.id); } }}
                     className={`p-6 border rounded-sm cursor-pointer transition-all ${
                       booking.extras.includes(opt.id)
                         ? 'border-brand-primary bg-brand-primary/5'
@@ -278,9 +285,9 @@ export const BookingWizard: React.FC = () => {
             </div>
 
             <div className="space-y-3">
-              <h2 className="text-white/90 text-3xl font-light">Почти готово!</h2>
+              <h2 className="text-white/90 text-3xl font-light">Демонстрационный расчёт</h2>
               <p className="text-white/40 text-sm leading-relaxed">
-                Для бронирования {currentCar?.name} необходимо внести предоплату 30%.
+                Вы выбрали {currentCar?.name}. Это пример расчёта, автомобиль не забронирован.
               </p>
             </div>
 
@@ -296,14 +303,8 @@ export const BookingWizard: React.FC = () => {
                 </div>
               </div>
 
-              <Button fullWidth className="h-16 text-base">
-                <CreditCard size={22} />
-                Оплатить сейчас
-              </Button>
-
-              <p className="text-center text-[10px] text-white/20 uppercase tracking-[0.3em]">
-                Безопасная оплата через Tinkoff Checkout
-              </p>
+              <p role="status" className="text-sm leading-relaxed text-white/75">Оплата и отправка заявки не подключены. Суммы приведены только для примера.</p>
+              <Button fullWidth className="h-16 text-base" onClick={resetBooking}>Вернуться в каталог</Button>
             </div>
           </motion.div>
         )}

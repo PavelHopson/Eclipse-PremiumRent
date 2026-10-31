@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useStore } from '../store';
 import { LOCATIONS } from '../types';
 import { MapPin, Calendar, ChevronDown } from 'lucide-react';
 
 export const SearchForm: React.FC = () => {
   const { booking, setBooking, nextStep } = useStore();
+  const [dateError, setDateError] = useState('');
+  const handleSearch = () => {
+    if (!booking.pickupDate || !booking.returnDate || booking.returnDate < booking.pickupDate) {
+      setDateError('Укажите даты: возврат не может быть раньше получения.');
+      return;
+    }
+    setDateError('');
+    nextStep();
+  };
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-30 -mt-12 sm:-mt-16 mb-4">
@@ -15,7 +24,7 @@ export const SearchForm: React.FC = () => {
               <MapPin size={12} className="text-brand-gold/30" /> Где заберёте
             </label>
             <div className="relative">
-              <select value={booking.pickupLocation} onChange={(e) => setBooking({ pickupLocation: e.target.value })}
+              <select aria-label="Место получения" value={booking.pickupLocation} onChange={(e) => setBooking({ pickupLocation: e.target.value })}
                 className="w-full bg-transparent text-white/75 text-sm sm:text-[15px] appearance-none cursor-pointer outline-none pr-8 font-light">
                 {LOCATIONS.map(loc => <option key={loc} value={loc} className="bg-dark text-white">{loc}</option>)}
               </select>
@@ -27,7 +36,7 @@ export const SearchForm: React.FC = () => {
             <label className="flex items-center gap-2 text-[10px] sm:text-[11px] text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.25em] mb-1.5 sm:mb-2">
               <Calendar size={12} className="text-brand-gold/30" /> Дата получения
             </label>
-            <input type="date" value={booking.pickupDate} onChange={(e) => setBooking({ pickupDate: e.target.value })}
+            <input type="date" aria-label="Дата получения" value={booking.pickupDate} onChange={(e) => setBooking({ pickupDate: e.target.value })}
               className="w-full bg-transparent text-white/75 text-sm sm:text-[15px] outline-none cursor-pointer font-light [color-scheme:dark]" />
           </div>
 
@@ -35,18 +44,19 @@ export const SearchForm: React.FC = () => {
             <label className="flex items-center gap-2 text-[10px] sm:text-[11px] text-white/20 uppercase tracking-[0.2em] sm:tracking-[0.25em] mb-1.5 sm:mb-2">
               <Calendar size={12} className="text-brand-gold/30" /> Дата возврата
             </label>
-            <input type="date" value={booking.returnDate} onChange={(e) => setBooking({ returnDate: e.target.value })}
+            <input type="date" aria-label="Дата возврата" value={booking.returnDate} onChange={(e) => setBooking({ returnDate: e.target.value })}
               className="w-full bg-transparent text-white/75 text-sm sm:text-[15px] outline-none cursor-pointer font-light [color-scheme:dark]" />
           </div>
 
           <div className="p-3 flex items-center">
-            <button onClick={nextStep}
+            <button onClick={handleSearch}
               className="w-full lg:w-auto px-8 sm:px-10 py-3.5 sm:py-4 bg-brand-gold/90 text-dark text-xs sm:text-[11px] font-semibold uppercase tracking-[0.25em] hover:bg-brand-gold transition-all duration-300">
               Найти
             </button>
           </div>
         </div>
       </div>
+      {dateError && <p role="alert" className="mt-3 text-sm text-red-300">{dateError}</p>}
     </div>
   );
 };
