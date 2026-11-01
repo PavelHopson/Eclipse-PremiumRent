@@ -1,0 +1,472 @@
+.rent-container {
+  width: min(1400px, calc(100% - 96px));
+  margin-inline: auto;
+}
+.rent-nav {
+  position: absolute;
+  z-index: 50;
+  inset: 0 0 auto;
+  border-bottom: 1px solid #ffffff24;
+  color: #f5f2ec;
+}
+.rent-nav-inner {
+  height: 86px;
+  width: min(1400px, calc(100% - 96px));
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.rent-brand {
+  display: grid;
+  gap: 3px;
+  text-align: left;
+  cursor: pointer;
+}
+.rent-brand span {
+  font-size: 19px;
+  letter-spacing: 0.24em;
+  font-weight: 500;
+}
+.rent-brand small {
+  font-size: 9px;
+  letter-spacing: 0.23em;
+  color: #c6b397;
+}
+.rent-nav-location {
+  margin-left: auto;
+  color: #eeeae2b3;
+  font-size: 13px;
+}
+.rent-nav-action {
+  border: 1px solid #ffffff70;
+  padding: 13px 17px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  cursor: pointer;
+}
+.rent-nav-action:hover {
+  background: #f1ede5;
+  color: #171613;
+}
+.rent-menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+.rent-mobile-menu {
+  background: #181714;
+  padding: 12px 24px 22px;
+}
+.rent-mobile-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 14px 0;
+  border-bottom: 1px solid #ffffff22;
+}
+.rent-hero {
+  min-height: 760px;
+  height: min(900px, 100svh);
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #171815;
+  color: #fff;
+  overflow: hidden;
+}
+.rent-hero-image {
+  position: absolute;
+  inset: 0;
+  background: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop")
+    center / cover;
+}
+.rent-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 11, 10, 0.91),
+      rgba(10, 11, 10, 0.48) 52%,
+      rgba(10, 11, 10, 0.23)
+    ),
+    linear-gradient(0deg, #0a0a0a 0%, transparent 38%);
+}
+.rent-hero-content {
+  position: relative;
+  width: min(1400px, calc(100% - 96px));
+  margin: 80px auto 0;
+}
+.rent-eyebrow {
+  color: #cdbb9b;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.rent-eyebrow span {
+  padding-inline: 10px;
+  opacity: 0.6;
+}
+.rent-hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(52px, 6.4vw, 94px);
+  line-height: 1.03;
+  letter-spacing: -0.04em;
+  margin: 28px 0;
+  max-width: 950px;
+  font-weight: 400;
+}
+.rent-hero h1 em {
+  color: #ddc8a5;
+  font-weight: 400;
+}
+.rent-hero-copy {
+  color: #eeeae2d9;
+  line-height: 1.7;
+  font-size: 16px;
+  max-width: 430px;
+}
+.rent-primary {
+  background: #d9c8ab;
+  color: #151411;
+  margin-top: 32px;
+  padding: 18px 22px;
+  min-width: 240px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.rent-primary:hover {
+  background: #f1e7d6;
+}
+.rent-disclaimer {
+  max-width: 400px;
+  font-size: 12px;
+  color: #eeeae2b3;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+.rent-hero-index {
+  position: absolute;
+  bottom: 36px;
+  right: max(48px, calc((100% - 1400px) / 2));
+  display: flex;
+  gap: 30px;
+  color: #ffffffa6;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+.rent-categories {
+  padding: 100px 0;
+  background: #ece8e0;
+  color: #23221f;
+}
+.rent-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 46px;
+}
+.rent-section-heading .rent-eyebrow {
+  color: #766750;
+}
+.rent-section-heading h2,
+.rent-fleet-intro h2,
+.rent-info h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(38px, 4vw, 60px);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  margin-top: 18px;
+}
+.rent-section-heading > p {
+  color: #5d5851;
+  font-size: 14px;
+  max-width: 270px;
+  line-height: 1.6;
+}
+.rent-category-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #c5bcb0;
+}
+.rent-category-list button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: left;
+  border-bottom: 1px solid #c5bcb0;
+  padding: 22px 12px 22px 0;
+  min-height: 70px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.rent-category-list button span:first-child {
+  font-size: 10px;
+  color: #837769;
+}
+.rent-category-list button span:last-child {
+  margin-left: auto;
+  color: #837769;
+}
+.rent-category-list button:hover {
+  color: #8b6f48;
+}
+.rent-fleet {
+  padding-top: 105px;
+  background: #111210;
+  scroll-margin-top: 24px;
+}
+.rent-fleet-intro {
+  margin-bottom: 36px;
+}
+.rent-fleet-intro > p:last-child {
+  margin-top: 18px;
+  color: #b9b9b3;
+  font-size: 14px;
+}
+.rent-carousel {
+  scroll-margin-top: 20px;
+}
+.rent-car {
+  flex: 0 0 370px;
+  width: 370px;
+  display: block;
+  text-align: left;
+  cursor: pointer;
+}
+.rent-car-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #232421;
+}
+.rent-car-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rent-car:hover img {
+  transform: scale(1.035);
+}
+.rent-car-arrow {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: #111b;
+  border: 1px solid #ffffff66;
+}
+.rent-car-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px 0;
+}
+.rent-car-meta h3 {
+  color: #f3f1eb;
+  font-size: 16px;
+  font-weight: 500;
+}
+.rent-car-meta p {
+  color: #aaa9a2;
+  font-size: 12px;
+  margin-top: 6px;
+}
+.rent-car-meta strong {
+  color: #e2d1b4;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.rent-car-meta small {
+  color: #aaa9a2;
+  font-size: 11px;
+  font-weight: 400;
+}
+.rent-wizard .rent-car {
+  width: 100%;
+}
+.rent-info {
+  padding: 115px 0;
+  background: #ded9cf;
+  color: #26241f;
+}
+.rent-info-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12%;
+}
+.rent-info .rent-eyebrow {
+  color: #796b55;
+}
+.rent-info-list p {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 6px 12px;
+  padding: 21px 0;
+  border-bottom: 1px solid #bcb4a8;
+  color: #5b5750;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.rent-info-list p > span {
+  grid-row: span 2;
+  color: #8c7d69;
+  font-size: 11px;
+}
+.rent-info-list strong {
+  font-size: 16px;
+  color: #25231f;
+}
+.rent-footer {
+  background: #10110f;
+  padding: 45px 0;
+}
+.rent-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.rent-footer-inner strong,
+.rent-footer-inner span {
+  display: block;
+  letter-spacing: 0.2em;
+}
+.rent-footer-inner span {
+  color: #c6b397;
+  font-size: 9px;
+  margin-top: 4px;
+}
+.rent-footer-inner p {
+  color: #b5b4ac;
+  line-height: 1.6;
+  font-size: 12px;
+}
+.rent-footer-inner a {
+  color: #f2eee5;
+  font-size: 12px;
+}
+.rent-skip {
+  position: fixed;
+  z-index: 100;
+  top: 8px;
+  left: 8px;
+  padding: 10px;
+  background: white;
+  color: black;
+  transform: translateY(-180%);
+}
+.rent-skip:focus {
+  transform: translateY(0);
+}
+:focus-visible {
+  outline: 2px solid #d6b985;
+  outline-offset: 4px;
+}
+@media (max-width: 800px) {
+  .rent-container,
+  .rent-nav-inner,
+  .rent-hero-content {
+    width: calc(100% - 40px);
+  }
+  .rent-nav-inner {
+    height: 72px;
+  }
+  .rent-nav-location,
+  .rent-nav-action {
+    display: none;
+  }
+  .rent-menu-toggle {
+    display: block;
+    margin-left: auto;
+  }
+  .rent-hero {
+    min-height: 700px;
+    height: 88svh;
+  }
+  .rent-hero-image {
+    background-position: 60% center;
+  }
+  .rent-hero-shade {
+    background:
+      linear-gradient(90deg, #0b0c0be8, #0b0c0b70),
+      linear-gradient(0deg, #0a0a0a, transparent 45%);
+  }
+  .rent-hero h1 {
+    font-size: clamp(43px, 9vw, 67px);
+  }
+  .rent-hero-index {
+    right: 20px;
+    bottom: 25px;
+  }
+  .rent-categories,
+  .rent-info {
+    padding: 75px 0;
+  }
+  .rent-section-heading {
+    display: block;
+  }
+  .rent-section-heading > p {
+    margin-top: 18px;
+  }
+  .rent-category-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 15px;
+  }
+  .rent-fleet {
+    padding-top: 75px;
+  }
+  .rent-info-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .rent-footer-inner {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 420px) {
+  .rent-hero h1 {
+    font-size: 40px;
+  }
+  .rent-hero-index span:last-child {
+    display: none;
+  }
+  .rent-car {
+    flex-basis: 280px;
+    width: 280px;
+  }
+  .rent-footer-inner p {
+    width: 100%;
+  }
+}
+@media (max-width: 360px) {
+  .rent-category-list {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

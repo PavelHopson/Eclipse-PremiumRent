@@ -61,7 +61,7 @@ export const BookingWizard: React.FC = () => {
   };
 
   return (
-    <div className="max-w-[1200px] mx-auto px-6 py-28 min-h-[80vh]">
+    <div className="rent-wizard max-w-[1200px] mx-auto px-6 py-28 min-h-[80vh]">
       <p role="status" className="mb-8 border border-brand-gold/30 p-4 text-sm leading-relaxed text-white/80">Демонстрация: данные не отправляются, бронирование и оплата не подключены. Не вводите настоящие персональные данные.</p>
       {/* Progress */}
       <div className="flex justify-between items-center mb-16 max-w-3xl mx-auto overflow-x-auto hide-scrollbar py-4">
@@ -222,9 +222,10 @@ export const BookingWizard: React.FC = () => {
               <form onSubmit={handleFormSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="text-[10px] text-white/30 uppercase tracking-[0.2em] mb-2 block">ФИО</label>
+                    <label htmlFor="demo-name" className="text-[10px] text-white/60 uppercase tracking-[0.2em] mb-2 block">Имя для примера</label>
                     <input
                       required
+                      id="demo-name"
                       type="text"
                       placeholder="Иван Иванович Иванов"
                       value={booking.customer.name}
@@ -233,9 +234,10 @@ export const BookingWizard: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] text-white/30 uppercase tracking-[0.2em] mb-2 block">Телефон</label>
+                    <label htmlFor="demo-phone" className="text-[10px] text-white/60 uppercase tracking-[0.2em] mb-2 block">Телефон для примера</label>
                     <input
                       required
+                      id="demo-phone"
                       type="tel"
                       placeholder="+7 (900) 000-00-00"
                       value={booking.customer.phone}
@@ -245,9 +247,10 @@ export const BookingWizard: React.FC = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="text-[10px] text-white/30 uppercase tracking-[0.2em] mb-2 block">E-mail</label>
+                  <label htmlFor="demo-email" className="text-[10px] text-white/60 uppercase tracking-[0.2em] mb-2 block">E-mail для примера</label>
                   <input
                     type="email"
+                    id="demo-email"
                     placeholder="example@mail.ru"
                     value={booking.customer.email}
                     onChange={(e) => setBooking({ customer: { ...booking.customer, email: e.target.value } })}
@@ -257,12 +260,7 @@ export const BookingWizard: React.FC = () => {
 
                 {formError && <p className="text-brand-secondary text-xs bg-brand-secondary/10 p-3 rounded-sm">{formError}</p>}
 
-                <div className="p-5 bg-dark border border-dark-border rounded-sm flex items-center gap-4">
-                  <input type="checkbox" required className="w-5 h-5 accent-brand-primary cursor-pointer shrink-0" />
-                  <p className="text-xs text-white/40 leading-relaxed">
-                    Я согласен с <a href="#" className="text-brand-gold/70 underline underline-offset-4">правилами аренды</a> и даю согласие на обработку персональных данных.
-                  </p>
-                </div>
+                <p className="text-sm text-white/70">Используйте вымышленные данные: форма демонстрационная и ничего не отправляет.</p>
 
                 <div className="flex gap-4 pt-4">
                   <Button type="submit" className="flex-1">Подтвердить</Button>

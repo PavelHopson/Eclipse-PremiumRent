@@ -1,6 +1,12 @@
 import { create } from 'zustand';
 import { BookingState, CarClass } from './types';
 
+const dateAfterDays = (days: number) => {
+  const date = new Date();
+  date.setDate(date.getDate() + days);
+  return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, '0'), String(date.getDate()).padStart(2, '0')].join('-');
+};
+
 interface AppStore {
   booking: BookingState;
   setBooking: (update: Partial<BookingState>) => void;
@@ -16,8 +22,8 @@ export const useStore = create<AppStore>((set) => ({
   booking: {
     step: 1,
     pickupLocation: 'Аэропорт Храброво',
-    pickupDate: new Date().toISOString().split('T')[0],
-    returnDate: new Date(Date.now() + 86400000 * 3).toISOString().split('T')[0],
+    pickupDate: dateAfterDays(0),
+    returnDate: dateAfterDays(3),
     selectedCarId: null,
     extras: [],
     customer: { name: '', phone: '', email: '' }
@@ -38,8 +44,8 @@ export const useStore = create<AppStore>((set) => ({
     booking: {
       step: 1,
       pickupLocation: 'Аэропорт Храброво',
-      pickupDate: new Date().toISOString().split('T')[0],
-      returnDate: new Date(Date.now() + 86400000 * 3).toISOString().split('T')[0],
+      pickupDate: dateAfterDays(0),
+      returnDate: dateAfterDays(3),
       selectedCarId: null,
       extras: [],
       customer: { name: '', phone: '', email: '' }
