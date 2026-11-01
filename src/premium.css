@@ -222,8 +222,7 @@
   min-width: 0;
   font-size: 14px;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  transition: color 220ms ease;
 }
 .rent-category-art {
   height: 82px;
@@ -236,8 +235,8 @@
   max-width: 179px;
   height: 100%;
   object-fit: contain;
-  filter: grayscale(1) invert(1) brightness(.85);
-  transition: filter 180ms ease, transform 180ms ease;
+  filter: brightness(1.8) drop-shadow(0 1px 2px rgba(238, 225, 205, .5));
+  transition: filter 220ms ease, transform 220ms ease;
 }
 .rent-category-name {
   display: flex;
@@ -248,19 +247,23 @@
 .rent-category-name span {
   margin-left: auto;
   color: #d9c8ab;
+  transition: transform 220ms ease, color 220ms ease;
 }
 .rent-category-list button:hover,
 .rent-category-list button:focus-visible,
 .rent-category-list button:active {
-  color: #fff;
-  background-color: rgba(223, 205, 173, .16);
-  border-bottom-color: #d9c8ab;
+  color: #e8d1ab;
 }
 .rent-category-list button:hover img,
 .rent-category-list button:focus-visible img,
 .rent-category-list button:active img {
-  filter: grayscale(1) invert(1) brightness(1);
-  transform: translateY(-3px);
+  filter: brightness(2.05) drop-shadow(0 2px 6px rgba(232, 209, 171, .72));
+  transform: translateY(-3px) scale(1.045);
+}
+.rent-category-list button:hover .rent-category-name span,
+.rent-category-list button:focus-visible .rent-category-name span {
+  color: #fff;
+  transform: translate(2px, -2px);
 }
 .rent-fleet {
   padding-top: 105px;
@@ -469,9 +472,10 @@
     overflow-x: auto;
     overscroll-behavior-x: contain;
     gap: 14px;
-    scrollbar-width: thin;
-    scrollbar-color: #a99a86 transparent;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
+  .rent-category-list::-webkit-scrollbar { display: none; }
   .rent-category-list button { flex: 0 0 135px; }
   .rent-category-art { height: 74px; }
   .rent-category-heading span { display: inline; font-size: 10px; letter-spacing: 0; text-transform: none; }
