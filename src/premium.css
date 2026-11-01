@@ -727,42 +727,35 @@ a.rent-footer-line:hover, a.rent-footer-line:focus-visible { color: #e8d1ab; }
   .rent-float .rent-float-top { display: none; }
 }
 
-/* Курсор: кольцо и световой шлейф */
+/* Курсор: колесо и след протектора */
 .rent-cursor-trail { position: fixed; inset: 0; z-index: 90; width: 100vw; height: 100vh; pointer-events: none; }
-.rent-cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 91;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 200ms ease;
-}
-.rent-cursor-ring::before {
-  content: "";
+.rent-wheel-cursor, .rent-wheel-cursor * { cursor: none !important; }
+.rent-wheel { position: fixed; top: 0; left: 0; z-index: 91; width: 0; height: 0; pointer-events: none; opacity: 0; transition: opacity 200ms ease; }
+.rent-wheel.is-on { opacity: 1; }
+.rent-wheel-spin {
   position: absolute;
   width: 34px;
   height: 34px;
   margin: -17px 0 0 -17px;
-  border: 1px solid #e8c88cb3;
-  border-radius: 50%;
-  transition: width 240ms cubic-bezier(.16, 1, .3, 1), height 240ms cubic-bezier(.16, 1, .3, 1), margin 240ms cubic-bezier(.16, 1, .3, 1), background 240ms ease, border-color 240ms ease;
+  filter: drop-shadow(0 3px 5px #0009);
 }
-.rent-cursor-ring.is-on { opacity: 1; }
-.rent-cursor-ring.is-link::before { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: #e8c88c1f; border-color: #e8c88c; }
-.rent-cursor-ring.is-car::before { width: 84px; height: 84px; margin: -42px 0 0 -42px; background: #e8c88c14; border-color: #e8c88c; }
-.rent-cursor-ring.is-car::after {
+.rent-wheel svg { display: block; transition: transform 220ms cubic-bezier(.16, 1, .3, 1); }
+.rent-wheel.is-link svg { transform: scale(1.4); }
+.rent-wheel.is-car svg { transform: scale(1.7); }
+.rent-wheel.is-press svg { transform: scale(.85); }
+.rent-wheel.is-car::after {
   content: "Выбрать";
   position: absolute;
-  transform: translate(-50%, -50%);
+  top: 34px;
+  left: 0;
+  transform: translateX(-50%);
+  padding: 2px 8px;
   font-size: 11px;
-  letter-spacing: .08em;
-  color: #f3dfba;
+  letter-spacing: .06em;
+  color: #12120f;
+  background: #e8c88c;
   white-space: nowrap;
 }
-
 /* Свет фар за курсором на первом экране */
 .rent-hero::after {
   content: "";
