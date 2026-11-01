@@ -235,8 +235,7 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  mix-blend-mode: screen;
-  opacity: .82;
+  opacity: .9;
   transition: opacity 240ms ease, filter 240ms ease;
 }
 .rent-category-name {
@@ -258,7 +257,7 @@
 .rent-category-list button:active img,
 .rent-category-list button[aria-pressed="true"] img {
   opacity: 1;
-  filter: brightness(1.55);
+  filter: brightness(1.35);
 }
 .rent-category-list button:hover .rent-category-name,
 .rent-category-list button:focus-visible .rent-category-name,
@@ -764,7 +763,7 @@ a.rent-footer-line:hover, a.rent-footer-line:focus-visible { color: #e8d1ab; }
   z-index: 1;
   pointer-events: none;
   mix-blend-mode: screen;
-  background: radial-gradient(420px 300px at var(--light-x, 70%) var(--light-y, 55%), #ffe7b859, transparent 70%);
+  background: radial-gradient(150px 110px at var(--light-x, 70%) var(--light-y, 55%), #ffe7b84d, transparent 72%);
   opacity: 0;
   transition: opacity 400ms ease;
 }
