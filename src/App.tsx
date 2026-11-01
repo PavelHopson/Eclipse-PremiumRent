@@ -12,6 +12,7 @@ import { AboutSection } from "./components/AboutSection";
 import { AppSection } from "./components/AppSection";
 import { SiteFooter } from "./components/SiteFooter";
 import { FloatingContacts } from "./components/FloatingContacts";
+import { MotionEffects } from "./components/MotionEffects";
 import { CAR_CLASSES, CarClass } from "./types";
 
 const App: React.FC = () => {
@@ -72,6 +73,7 @@ const App: React.FC = () => {
       </main>
       <SiteFooter />
       <FloatingContacts />
+      <MotionEffects />
     </div>
   );
 };
