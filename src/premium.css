@@ -444,11 +444,11 @@
     height: 100svh;
   }
   .rent-hero-image {
-    background-position: 60% center;
+    background-position: 74% center;
   }
   .rent-hero-shade {
     background:
-      linear-gradient(90deg, #0b0c0be8, #0b0c0b70),
+      linear-gradient(90deg, #0b0c0bb8, #0b0c0b24),
       linear-gradient(0deg, #0a0a0a, transparent 45%);
   }
   .rent-hero h1 {
