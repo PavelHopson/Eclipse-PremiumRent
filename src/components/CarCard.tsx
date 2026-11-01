@@ -16,6 +16,7 @@ export const CarCard: React.FC<CarCardProps> = ({ car, onSelect }) => (
   >
     <div className="rent-car-image">
       <img src={car.images[0]} alt="" loading="lazy" />
+      {car.images[1] && <img className="rent-car-image-alt" src={car.images[1]} alt="" loading="lazy" />}
       <span className="rent-car-arrow" aria-hidden="true">
         <ArrowUpRight size={18} />
       </span>

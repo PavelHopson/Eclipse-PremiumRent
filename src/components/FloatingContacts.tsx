@@ -47,7 +47,7 @@ export const FloatingContacts: React.FC = () => {
         className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xl shadow-black/40 transition-all duration-300 ${
           open
             ? 'bg-white/10 backdrop-blur-xl border border-white/10 text-white/60 rotate-0'
-            : 'bg-brand-primary text-white hover:brightness-110'
+            : 'bg-brand-primary text-dark hover:brightness-110'
         }`}
       >
         {open ? <X size={22} /> : <MessageCircle size={22} />}

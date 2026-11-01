@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { CarClass } from '../types';
 import { CARS } from '../data';
 import { CarCard } from './CarCard';
@@ -9,6 +10,7 @@ interface CarCarouselProps {
 }
 
 export const CarCarousel: React.FC<CarCarouselProps> = ({ category, onSelectCar }) => {
+  const reduced = useReducedMotion();
   const cars = CARS.filter(c => c.class === category);
 
   if (cars.length === 0) return null;
@@ -23,8 +25,16 @@ export const CarCarousel: React.FC<CarCarouselProps> = ({ category, onSelectCar 
         </div>
 
         <div className="rent-car-grid">
-          {cars.map(car => (
-            <CarCard key={car.id} car={car} onSelect={onSelectCar} />
+          {cars.map((car, i) => (
+            <motion.div
+              key={car.id}
+              initial={reduced ? false : { opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: i * 0.07, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <CarCard car={car} onSelect={onSelectCar} />
+            </motion.div>
           ))}
         </div>
       </div>

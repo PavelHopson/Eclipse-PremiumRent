@@ -7,6 +7,7 @@ import { BookingWizard } from "./components/BookingWizard";
 import { CarCarousel } from "./components/CarCarousel";
 import { InfoSection } from "./components/InfoSection";
 import { ClientsSection } from "./components/ClientsSection";
+import { RoutesSection } from "./components/RoutesSection";
 import { CAR_CLASSES, CarClass } from "./types";
 
 const App: React.FC = () => {
@@ -55,6 +56,7 @@ const App: React.FC = () => {
                 </div>
               ))}
             </div>
+            <RoutesSection />
             <ClientsSection />
             <InfoSection />
           </>
@@ -63,6 +65,7 @@ const App: React.FC = () => {
         )}
       </main>
       <footer className="rent-footer">
+        <div className="rent-container"><p className="rent-footer-mark" aria-hidden="true">ECLIPSE</p></div>
         <div className="rent-container rent-footer-inner">
           <div>
             <strong>ECLIPSE</strong>

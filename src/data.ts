@@ -16,7 +16,7 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: [carImage('g63-amg')],
+    images: [carImage('g63-amg'), carImage('g63-amg-2'), carImage('g63-amg-3')],
     features: ['AMG Line', 'V8 585HP', 'Exclusive Interior'],
     isNew: true
   },
@@ -68,7 +68,7 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: [carImage('rolls-ghost')],
+    images: [carImage('rolls-ghost'), carImage('rolls-ghost-2'), carImage('rolls-ghost-3')],
     features: ['V12 6.75L', 'Starlight Headliner', 'Bespoke Audio'],
     isNew: true
   },
@@ -81,7 +81,7 @@ export const CARS: Car[] = [
     seats: 4,
     fuel: 'Бензин',
     year: 2024,
-    images: [carImage('mercedes-s')],
+    images: [carImage('mercedes-s'), carImage('mercedes-s-2'), carImage('mercedes-s-3')],
     features: ['V12 Biturbo', 'First Class Rear', 'Burmester 4D'],
   },
   {
@@ -106,7 +106,7 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: [carImage('bentley-fs')],
+    images: [carImage('bentley-fs'), carImage('bentley-fs-2'), carImage('bentley-fs-3')],
     features: ['W12 Speed', 'Naim Audio', 'Mulliner Specification'],
     isNew: true
   },
@@ -170,7 +170,7 @@ export const CARS: Car[] = [
     seats: 2,
     fuel: 'Бензин',
     year: 2024,
-    images: [carImage('lambo-huracan')],
+    images: [carImage('lambo-huracan'), carImage('lambo-huracan-2'), carImage('lambo-huracan-3')],
     features: ['V10 640HP', 'LDVI System', 'Lifting System'],
     isNew: true
   },
@@ -183,7 +183,7 @@ export const CARS: Car[] = [
     seats: 2,
     fuel: 'Бензин',
     year: 2024,
-    images: [carImage('porsche-911')],
+    images: [carImage('porsche-911'), carImage('porsche-911-2'), carImage('porsche-911-3')],
     features: ['650 HP', 'Sport Chrono', 'PCCB Ceramic'],
     isNew: true
   },

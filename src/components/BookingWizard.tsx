@@ -5,6 +5,7 @@ import { Button } from './Button';
 import { CarCard } from './CarCard';
 import { CheckCircle2, ChevronLeft, CreditCard, ShieldCheck, User, Info, Calendar as CalendarIcon, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CarGallery } from './CarGallery';
 
 const EXTRA_OPTIONS = [
                   { id: 'seat', name: 'Детское кресло', price: 500, desc: 'ISOFIX крепления, до 36кг' },
@@ -68,7 +69,7 @@ export const BookingWizard: React.FC = () => {
         {steps.map((s, i) => (
           <div key={s.title} className="flex flex-col items-center flex-1 min-w-[80px] relative">
             <div className={`w-10 h-10 rounded-sm flex items-center justify-center transition-all z-10 ${
-              booking.step > i + 1 ? 'bg-brand-primary text-white' :
+              booking.step > i + 1 ? 'bg-brand-primary text-dark' :
               booking.step === i + 1 ? 'bg-white text-dark' :
               'bg-dark-card border border-dark-border text-white/30'
             }`}>
@@ -152,7 +153,7 @@ export const BookingWizard: React.FC = () => {
                   >
                     <div className="flex justify-between items-start mb-3">
                       <div className={`w-8 h-8 rounded-sm flex items-center justify-center ${
-                        booking.extras.includes(opt.id) ? 'bg-brand-primary text-white' : 'bg-dark border border-dark-border text-white/30'
+                        booking.extras.includes(opt.id) ? 'bg-brand-primary text-dark' : 'bg-dark border border-dark-border text-white/30'
                       }`}>
                         {booking.extras.includes(opt.id) ? <CheckCircle2 size={18} /> : <Info size={18} />}
                       </div>
@@ -174,9 +175,10 @@ export const BookingWizard: React.FC = () => {
                 <h3 className="text-[10px] text-white/30 uppercase tracking-[0.3em] mb-8">Итого</h3>
                 {currentCar && (
                   <div className="space-y-6">
+                    {currentCar.images.length > 1 && <CarGallery key={currentCar.id} name={currentCar.name} images={currentCar.images} />}
                     <div className="flex gap-4 items-center">
                       <div className="w-20 h-16 rounded-sm overflow-hidden shrink-0">
-                        <img src={currentCar.images[0]} className="w-full h-full object-cover" />
+                        <img src={currentCar.images[0]} alt="" className="w-full h-full object-cover" />
                       </div>
                       <div>
                         <p className="text-white/80 text-sm font-medium">{currentCar.name}</p>
