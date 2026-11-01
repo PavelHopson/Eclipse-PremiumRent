@@ -79,7 +79,7 @@
 .rent-hero-image {
   position: absolute;
   inset: 0;
-  background: url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1920&auto=format&fit=crop")
+  background: url("./assets/hero.webp")
     center / cover;
 }
 .rent-hero-shade {
@@ -530,3 +530,32 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* В категории до четырёх машин, ряд на всю ширину. */
+.rent-car-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+.rent-car-grid .rent-car { width: auto; min-width: 0; flex: none; }
+@media (max-width: 1100px) { .rent-car-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .rent-car-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; } }
+
+/* Клиенты: большие портреты. */
+.rent-clients { padding: 110px 0; border-top: 1px solid rgba(255, 255, 255, .08); }
+.rent-clients h2 { margin: 14px 0 12px; font-family: var(--rent-display, Georgia, serif); font-size: clamp(36px, 4.4vw, 62px); font-weight: 400; line-height: 1.05; color: #f2eee6; }
+.rent-clients-note { margin: 0 0 56px; font-size: 13px; color: rgba(242, 238, 230, .62); }
+.rent-clients-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 28px; margin: 0; padding: 0; list-style: none; }
+.rent-clients-grid figure { margin: 0; }
+.rent-clients-photo { position: relative; overflow: hidden; background: #232421; }
+.rent-clients-photo::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(255, 255, 255, .04); pointer-events: none; transition: border-color 700ms; }
+.rent-clients-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; filter: grayscale(1); opacity: .8; transition: filter 700ms, opacity 700ms, transform 1000ms cubic-bezier(.16, 1, .3, 1); }
+.rent-clients-grid li:hover img, .rent-clients-grid li:focus-within img { filter: none; opacity: 1; transform: scale(1.03); }
+.rent-clients-grid li:hover .rent-clients-photo::after { border-color: rgba(216, 196, 161, .3); }
+/* Без наведения (телефон) фото сразу цветные. */
+@media (hover: none) { .rent-clients-grid img { filter: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .rent-clients-grid img, .rent-clients-photo::after { transition: none; } .rent-clients-grid li:hover img { transform: none; } }
+.rent-clients-grid figcaption { padding-top: 20px; }
+.rent-clients-grid strong { display: block; font-size: 22px; font-weight: 400; color: #f2eee6; }
+.rent-clients-grid span { display: block; margin-top: 4px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #d8c4a1; }
+.rent-clients-grid p { margin: 14px 0 0; font-size: 15px; line-height: 1.6; color: rgba(242, 238, 230, .72); }
+/* Лёгкая лесенка, чтобы карточки не стояли ровным строем. */
+@media (min-width: 901px) { .rent-clients-grid li:nth-child(3n + 2) { margin-top: 72px; } }
+@media (max-width: 900px) { .rent-clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .rent-clients { padding: 72px 0; } .rent-clients-grid { grid-template-columns: minmax(0, 1fr); gap: 44px; } }

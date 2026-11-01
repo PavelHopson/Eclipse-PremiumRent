@@ -1,20 +1,12 @@
-import { Car, Celebrity } from './types';
+import { Car, Client } from './types';
+
+// Фото сгенерированы для проекта (один шоурум Eclipse), файлы лежат в репозитории.
+const images = import.meta.glob<string>('./assets/cars/*.webp', { eager: true, query: '?url', import: 'default' });
+export const carImage = (id: string) => images[`./assets/cars/${id}.webp`];
+const portraits = import.meta.glob<string>('./assets/clients/*.webp', { eager: true, query: '?url', import: 'default' });
+const portrait = (id: string) => portraits[`./assets/clients/${id}.webp`];
 
 export const CARS: Car[] = [
-  // ═══ Внедорожники ═══
-  {
-    id: 'g63-brabus',
-    name: 'Mercedes G63 Brabus 800',
-    class: 'Внедорожники',
-    pricePerDay: 69000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/348/11-740x507.JPG'],
-    features: ['Brabus Widestar', 'V8 Biturbo 800HP', 'Night Package'],
-    isNew: true
-  },
   {
     id: 'g63-amg',
     name: 'Mercedes G63 AMG',
@@ -24,73 +16,8 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/574/1-740x507.jpg'],
+    images: [carImage('g63-amg')],
     features: ['AMG Line', 'V8 585HP', 'Exclusive Interior'],
-    isNew: true
-  },
-  {
-    id: 'bmw-x5-m',
-    name: 'BMW X5 M Competition',
-    class: 'Внедорожники',
-    pricePerDay: 25000,
-    oldPrice: 29000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/516/1%202-740x507.jpg'],
-    features: ['M Competition', '625HP', 'Carbon Package'],
-    isNew: true
-  },
-  {
-    id: 'range-rover-sv',
-    name: 'Range Rover Vogue',
-    class: 'Внедорожники',
-    pricePerDay: 45000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Дизель',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/562/11-740x507.jpg'],
-    features: ['SV Autobiography', 'Air Suspension', 'Meridian Signature'],
-    isNew: true
-  },
-  {
-    id: 'bmw-x7',
-    name: 'BMW X7 40i',
-    class: 'Внедорожники',
-    pricePerDay: 35000,
-    transmission: 'Автомат',
-    seats: 7,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/515/1.1-740x507.jpg'],
-    features: ['7 мест', 'xDrive', 'Sky Lounge Panorama'],
-    isNew: true
-  },
-  {
-    id: 'cayenne-turbo',
-    name: 'Porsche Cayenne Turbo GT',
-    class: 'Внедорожники',
-    pricePerDay: 55000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/548/1.1-740x507.jpg'],
-    features: ['640 HP', 'Carbon Ceramic', 'Sport Chrono'],
-  },
-  {
-    id: 'bmw-x6-m',
-    name: 'BMW X6 M Competition',
-    class: 'Внедорожники',
-    pricePerDay: 28000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/514/1.1-740x507.jpg'],
-    features: ['M Competition', '625HP', 'M Carbon Roof'],
     isNew: true
   },
   {
@@ -102,21 +29,22 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/559/1-740x507.jpg'],
+    images: [carImage('rolls-cullinan')],
     features: ['Black Badge', 'V12 600HP', 'Bespoke Audio'],
     isNew: true
   },
   {
-    id: 'bentley-bentayga',
-    name: 'Bentley Bentayga',
+    id: 'bmw-x7',
+    name: 'BMW X7 40i',
     class: 'Внедорожники',
-    pricePerDay: 85000,
+    pricePerDay: 35000,
     transmission: 'Автомат',
-    seats: 5,
+    seats: 7,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/526/1.1-740x507.jpg'],
-    features: ['W12 Speed', 'Naim Audio', 'All Terrain'],
+    images: [carImage('bmw-x7')],
+    features: ['7 мест', 'xDrive', 'Sky Lounge Panorama'],
+    isNew: true
   },
   {
     id: 'lambo-urus',
@@ -127,25 +55,10 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/544/1.1-740x507.jpg'],
+    images: [carImage('lambo-urus')],
     features: ['V8 666HP', 'Tamburo', 'ANIMA Selector'],
     isNew: true
   },
-  {
-    id: 'bmw-xm',
-    name: 'BMW XM Label Red',
-    class: 'Внедорожники',
-    pricePerDay: 48000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Гибрид',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/517/1%202-740x507.jpg'],
-    features: ['748HP Hybrid', 'M Carbon', 'Bowers & Wilkins'],
-    isNew: true
-  },
-
-  // ═══ Премиум ═══
   {
     id: 'rolls-ghost',
     name: 'Rolls-Royce Ghost',
@@ -155,9 +68,21 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/563/11-740x507.jpg'],
+    images: [carImage('rolls-ghost')],
     features: ['V12 6.75L', 'Starlight Headliner', 'Bespoke Audio'],
     isNew: true
+  },
+  {
+    id: 'mercedes-s',
+    name: 'Mercedes-Maybach S 680',
+    class: 'Премиум',
+    pricePerDay: 85000,
+    transmission: 'Автомат',
+    seats: 4,
+    fuel: 'Бензин',
+    year: 2024,
+    images: [carImage('mercedes-s')],
+    features: ['V12 Biturbo', 'First Class Rear', 'Burmester 4D'],
   },
   {
     id: 'rolls-wraith',
@@ -168,7 +93,7 @@ export const CARS: Car[] = [
     seats: 4,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/560/1%203-740x507.jpg'],
+    images: [carImage('rolls-wraith')],
     features: ['Black Badge', 'V12 632HP', 'Starlight Door'],
     isNew: true
   },
@@ -181,36 +106,10 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/506/1-740x507.jpg'],
+    images: [carImage('bentley-fs')],
     features: ['W12 Speed', 'Naim Audio', 'Mulliner Specification'],
     isNew: true
   },
-  {
-    id: 'mercedes-s',
-    name: 'Mercedes-Maybach S 680',
-    class: 'Премиум',
-    pricePerDay: 85000,
-    transmission: 'Автомат',
-    seats: 4,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/584/11-740x507.jpg'],
-    features: ['V12 Biturbo', 'First Class Rear', 'Burmester 4D'],
-  },
-  {
-    id: 'bmw-7',
-    name: 'BMW M760i xDrive',
-    class: 'Премиум',
-    pricePerDay: 55000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/496/1-740x507.jpg'],
-    features: ['Executive Lounge', 'Theatre Screen 31"', 'Bowers & Wilkins'],
-  },
-
-  // ═══ Бизнес ═══
   {
     id: 'mercedes-e',
     name: 'Mercedes-Benz E 300 AMG',
@@ -220,21 +119,8 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/584/11-740x507.jpg'],
+    images: [carImage('mercedes-e')],
     features: ['AMG Line', 'Digital Light', 'Burmester 3D'],
-    isNew: true
-  },
-  {
-    id: 'mercedes-c',
-    name: 'Mercedes-Benz C 300 AMG',
-    class: 'Бизнес',
-    pricePerDay: 12000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/581/35e9bd6ca6d6514aa17ada9167ec0ef7-740x507.jpg'],
-    features: ['AMG Line', 'MBUX', 'Multibeam LED'],
     isNew: true
   },
   {
@@ -246,8 +132,21 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/576/11-740x507.jpg'],
+    images: [carImage('audi-a6')],
     features: ['S-Line', 'Virtual Cockpit Plus', 'Quattro'],
+    isNew: true
+  },
+  {
+    id: 'mercedes-c',
+    name: 'Mercedes-Benz C 300 AMG',
+    class: 'Бизнес',
+    pricePerDay: 12000,
+    transmission: 'Автомат',
+    seats: 5,
+    fuel: 'Бензин',
+    year: 2024,
+    images: [carImage('mercedes-c')],
+    features: ['AMG Line', 'MBUX', 'Multibeam LED'],
     isNew: true
   },
   {
@@ -259,11 +158,9 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/501/1-740x507.jpg'],
+    images: [carImage('audi-a5')],
     features: ['S-Line', 'Matrix LED', 'B&O Sound'],
   },
-
-  // ═══ Спорткары ═══
   {
     id: 'lambo-huracan',
     name: 'Lamborghini Huracán EVO',
@@ -273,47 +170,8 @@ export const CARS: Car[] = [
     seats: 2,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/541/1.1-740x507.jpg'],
+    images: [carImage('lambo-huracan')],
     features: ['V10 640HP', 'LDVI System', 'Lifting System'],
-    isNew: true
-  },
-  {
-    id: 'lambo-aventador',
-    name: 'Lamborghini Aventador SVJ',
-    class: 'Спорткары',
-    pricePerDay: 200000,
-    transmission: 'Автомат',
-    seats: 2,
-    fuel: 'Бензин',
-    year: 2023,
-    images: ['https://carloson.ru/uploads/images/cars/552/1%202-740x507.jpg'],
-    features: ['V12 770HP', 'ALA 2.0', 'SVJ Aerodinamica'],
-    isNew: true
-  },
-  {
-    id: 'ferrari-f8',
-    name: 'Ferrari F8 Spider',
-    class: 'Спорткары',
-    pricePerDay: 180000,
-    transmission: 'Автомат',
-    seats: 2,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/551/1%202-740x507.jpg'],
-    features: ['V8 Biturbo 720HP', 'Retractable Hard Top', 'Manettino'],
-    isNew: true
-  },
-  {
-    id: 'ferrari-sf90',
-    name: 'Ferrari SF90 Spider',
-    class: 'Спорткары',
-    pricePerDay: 250000,
-    transmission: 'Автомат',
-    seats: 2,
-    fuel: 'Гибрид',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/538/1.1-740x507.jpg'],
-    features: ['1000HP Hybrid', 'eManettino', 'Assetto Fiorano'],
     isNew: true
   },
   {
@@ -325,8 +183,21 @@ export const CARS: Car[] = [
     seats: 2,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/337/100001-740x507.jpg'],
+    images: [carImage('porsche-911')],
     features: ['650 HP', 'Sport Chrono', 'PCCB Ceramic'],
+    isNew: true
+  },
+  {
+    id: 'ferrari-f8',
+    name: 'Ferrari F8 Spider',
+    class: 'Спорткары',
+    pricePerDay: 180000,
+    transmission: 'Автомат',
+    seats: 2,
+    fuel: 'Бензин',
+    year: 2024,
+    images: [carImage('ferrari-f8')],
+    features: ['V8 Biturbo 720HP', 'Retractable Hard Top', 'Manettino'],
     isNew: true
   },
   {
@@ -338,72 +209,10 @@ export const CARS: Car[] = [
     seats: 2,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/554/1.1-740x507.jpg'],
+    images: [carImage('mclaren-720s')],
     features: ['V8 720HP', 'Retractable Roof', 'Variable Drift Control'],
     isNew: true
   },
-  {
-    id: 'bentley-continental',
-    name: 'Bentley Continental GTC',
-    class: 'Спорткары',
-    pricePerDay: 95000,
-    transmission: 'Автомат',
-    seats: 4,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/505/1-740x507.jpg'],
-    features: ['W12 659HP', 'Naim Audio', 'Mulliner Driving'],
-  },
-  {
-    id: 'bmw-m4',
-    name: 'BMW M4 Competition',
-    class: 'Спорткары',
-    pricePerDay: 25000,
-    transmission: 'Автомат',
-    seats: 4,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/509/1.1-740x507.jpg'],
-    features: ['510 HP', 'M xDrive', 'Carbon Package'],
-  },
-  {
-    id: 'mercedes-amg-gt',
-    name: 'Mercedes-AMG GT 63 S',
-    class: 'Спорткары',
-    pricePerDay: 65000,
-    transmission: 'Автомат',
-    seats: 4,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/583/11-740x507.jpg'],
-    features: ['V8 Biturbo 639HP', 'AMG Dynamics', 'Drift Mode'],
-  },
-  {
-    id: 'audi-rs7',
-    name: 'Audi RS7 Sportback',
-    class: 'Спорткары',
-    pricePerDay: 35000,
-    transmission: 'Автомат',
-    seats: 4,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/503/606009b1d38c72ea1ff84f03ce8f92c3-740x507.jpg'],
-    features: ['V8 600HP', 'Quattro Sport', 'RS Design'],
-  },
-  {
-    id: 'corvette-c8',
-    name: 'Chevrolet Corvette C8 Stingray',
-    class: 'Спорткары',
-    pricePerDay: 40000,
-    transmission: 'Автомат',
-    seats: 2,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/530/7b2867a487f074c94057ce3b685106f8-740x507.jpg'],
-    features: ['V8 495HP', 'Mid-Engine', 'Magnetic Ride'],
-  },
-
-  // ═══ Минивэны ═══
   {
     id: 'cadillac-escalade',
     name: 'Cadillac Escalade ESV',
@@ -413,21 +222,8 @@ export const CARS: Car[] = [
     seats: 7,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/317/100008-740x507.jpg'],
+    images: [carImage('cadillac-escalade')],
     features: ['6.2L V8', 'Super Cruise', 'AKG Studio 36'],
-    isNew: true
-  },
-  {
-    id: 'cadillac-escalade-v',
-    name: 'Cadillac Escalade-V',
-    class: 'Минивэны',
-    pricePerDay: 65000,
-    transmission: 'Автомат',
-    seats: 7,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/528/1.1-740x507.jpg'],
-    features: ['Supercharged V8 682HP', 'Magnetic Ride', 'AKG 36'],
     isNew: true
   },
   {
@@ -439,8 +235,21 @@ export const CARS: Car[] = [
     seats: 7,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/535/1.1-740x507.jpg'],
+    images: [carImage('chevrolet-tahoe')],
     features: ['5.3L V8', 'RST Package', '7 мест'],
+  },
+  {
+    id: 'cadillac-escalade-v',
+    name: 'Cadillac Escalade-V',
+    class: 'Минивэны',
+    pricePerDay: 65000,
+    transmission: 'Автомат',
+    seats: 7,
+    fuel: 'Бензин',
+    year: 2024,
+    images: [carImage('cadillac-escalade-v')],
+    features: ['Supercharged V8 682HP', 'Magnetic Ride', 'AKG 36'],
+    isNew: true
   },
   {
     id: 'gmc-yukon',
@@ -451,11 +260,9 @@ export const CARS: Car[] = [
     seats: 7,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/572/11-740x507.JPG'],
+    images: [carImage('gmc-yukon')],
     features: ['5.3L V8', '7 мест', 'Bose Premium'],
   },
-
-  // ═══ Комфорт ═══
   {
     id: 'audi-q8',
     name: 'Audi Q8 S-Line',
@@ -465,21 +272,8 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/494/0a75ef2d26471b9d3be7c86528eee48e-740x507.jpg'],
+    images: [carImage('audi-q8')],
     features: ['S-Line', 'Matrix LED', 'Quattro'],
-    isNew: true
-  },
-  {
-    id: 'audi-rs5',
-    name: 'Audi RS5 Sportback',
-    class: 'Комфорт',
-    pricePerDay: 22000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Бензин',
-    year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/525/1.1-740x507.jpg'],
-    features: ['V6 450HP', 'RS Sport Exhaust', 'Quattro'],
     isNew: true
   },
   {
@@ -491,8 +285,21 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/512/1.1-740x507.jpg'],
+    images: [carImage('bmw-x3-m')],
     features: ['M Competition 510HP', 'M Carbon', 'Harman Kardon'],
+    isNew: true
+  },
+  {
+    id: 'audi-rs5',
+    name: 'Audi RS5 Sportback',
+    class: 'Комфорт',
+    pricePerDay: 22000,
+    transmission: 'Автомат',
+    seats: 5,
+    fuel: 'Бензин',
+    year: 2024,
+    images: [carImage('audi-rs5')],
+    features: ['V6 450HP', 'RS Sport Exhaust', 'Quattro'],
     isNew: true
   },
   {
@@ -504,11 +311,9 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Бензин',
     year: 2024,
-    images: ['https://carloson.ru/uploads/images/cars/527/1.1-740x507.jpg'],
+    images: [carImage('cadillac-xt4')],
     features: ['2.0T AWD', 'Bose', 'Driver Assist'],
   },
-
-  // ═══ Электромобили ═══
   {
     id: 'zeekr-001',
     name: 'Zeekr 001 FR Edition',
@@ -518,23 +323,10 @@ export const CARS: Car[] = [
     seats: 5,
     fuel: 'Электро',
     year: 2024,
-    images: ['https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=800&auto=format&fit=crop'],
+    images: [carImage('zeekr-001')],
     features: ['1265 HP Quad Motor', '0-100 за 2.0s', 'Air Suspension'],
     isNew: true,
     isHotDeal: true
-  },
-  {
-    id: 'tesla-model-s',
-    name: 'Tesla Model S Plaid',
-    class: 'Электромобили',
-    pricePerDay: 35000,
-    transmission: 'Автомат',
-    seats: 5,
-    fuel: 'Электро',
-    year: 2024,
-    images: ['https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=800&auto=format&fit=crop'],
-    features: ['1020 HP', '0-100 за 2.1s', 'Autopilot FSD'],
-    isNew: true
   },
   {
     id: 'porsche-taycan',
@@ -545,76 +337,31 @@ export const CARS: Car[] = [
     seats: 4,
     fuel: 'Электро',
     year: 2024,
-    images: ['https://images.unsplash.com/photo-1619767886558-efdc259cde1a?q=80&w=800&auto=format&fit=crop'],
+    images: [carImage('porsche-taycan')],
     features: ['761 HP', 'Performance Battery+', 'PCCB'],
     isNew: true
   },
-];
-
-export const CELEBRITIES: Celebrity[] = [
   {
-    name: 'Александр Овечкин',
-    role: 'Хоккеист, капитан клуба НХЛ «Вашингтон Кэпиталз».',
-    text: 'Eclipse — это уровень. Новые машины и безупречный сервис.',
-    img: 'https://carloson.ru/uploads/images/b58f107f4a4aa854c96ebb575b5942a3-1900x1080.jpg'
-  },
-  {
-    name: 'Wylsacom',
-    role: 'Видеоблогер. Создатель YouTube-канала с аудиторией более 10 млн подписчиков.',
-    text: 'Протестировал Zeekr на косе. Эмоции и сервис на высоте.',
-    img: 'https://carloson.ru/uploads/images/67005911e5c3e1cc01c7b05b4c6483b4-1900x1080.jpg'
-  },
-  {
-    name: 'Пётр Ян',
-    role: 'Боец MMA. Чемпион UFC в легчайшем весе.',
-    text: 'Надежность и скорость. Ребята из Eclipse закрывают все вопросы.',
-    img: 'https://carloson.ru/uploads/images/25488759a2d3d70f28854be0fd3dd17a-1900x1080.jpg'
-  },
-  {
-    name: 'Юлия Зиверт',
-    role: 'Певица. Лауреат «Russian Music Awards», «Золотой граммофон», «Муз-ТВ».',
-    text: 'Люблю комфорт и красивые авто. В Калининграде — только Eclipse.',
-    img: 'https://carloson.ru/uploads/images/IMG_2436-1900x1080.jpg'
-  },
-  {
-    name: 'Алина Загитова',
-    role: 'Фигуристка. Олимпийская чемпионка 2018, чемпионка мира.',
-    text: 'Идеальный сервис для тех, кто привык к лучшему.',
-    img: 'https://carloson.ru/uploads/images/IMG_9643-1900x1080.jpg'
-  },
-  {
-    name: 'Александра Трусова',
-    role: 'Фигуристка. Серебряный призёр Олимпийских игр 2022.',
-    text: 'Быстрые машины и Балтийское побережье — лучшее сочетание.',
-    img: 'https://carloson.ru/uploads/images/%D0%A2%D1%80%D1%83%D1%81%D0%BE%D0%B2%D0%B0-1900x1080.jpg'
-  },
-  {
-    name: 'Карина Кросс',
-    role: 'Блогер. Более 30 млн подписчиков в социальных сетях.',
-    text: 'В Калининграде всегда беру авто в Eclipse. Рекомендую.',
-    img: 'https://carloson.ru/uploads/images/DSCF3385-1900x1080.jpg'
-  },
-  {
-    name: 'Дмитрий Орлов',
-    role: 'Хоккеист НХЛ. Обладатель Кубка Стэнли.',
-    text: 'Премиальный автопарк и сервис мирового уровня.',
-    img: 'https://carloson.ru/uploads/images/7b389853f82ebc2123e03bfe43374e6d-1900x1080.jpg'
+    id: 'tesla-model-s',
+    name: 'Tesla Model S Plaid',
+    class: 'Электромобили',
+    pricePerDay: 35000,
+    transmission: 'Автомат',
+    seats: 5,
+    fuel: 'Электро',
+    year: 2024,
+    images: [carImage('tesla-model-s')],
+    features: ['1020 HP', '0-100 за 2.1s', 'Autopilot FSD'],
+    isNew: true
   }
 ];
 
-export const BRANDS = [
-  'Aston Martin', 'Audi', 'Bentley', 'BMW', 'Cadillac',
-  'Chevrolet', 'Ferrari', 'Genesis', 'GMC', 'Lamborghini',
-  'Lexus', 'McLaren', 'Mercedes', 'Porsche', 'Range Rover',
-  'Rolls Royce', 'Tesla', 'Toyota', 'Xiaomi', 'Zeekr'
+// Вымышленные персонажи для демонстрации блока. Реальных людей здесь нет.
+export const CLIENTS: Client[] = [
+  { name: 'Вера Ланская', role: 'Архитектор', text: 'Беру Ghost на объекты: заказчики слушают внимательнее.', img: portrait('vera') },
+  { name: 'Марк Ильин', role: 'Капитан дальнего плавания', text: 'После полугода в море хочется твёрдой земли и большой машины.', img: portrait('mark') },
+  { name: 'Тая Север', role: 'Гонщица-испытатель', text: 'Обычно я проверяю машины. Здесь проверять нечего.', img: portrait('taya') },
+  { name: 'Лев Орбин', role: 'Шеф-повар', text: 'Хороший сервис как хорошая кухня: всё готово к твоему приходу.', img: portrait('lev') },
+  { name: 'Ада Кросс', role: 'Кинорежиссёр', text: 'Приезжаю на съёмки красиво, даже если снимаю в дюнах.', img: portrait('ada') },
+  { name: 'Эмиль Гранд', role: 'Профессор астрономии', text: 'Тихий электромотор и тёмное небо над Куршской косой.', img: portrait('emil') },
 ];
-
-export const CATEGORY_COUNTS: Record<string, number> = {
-  'Внедорожники': 65,
-  'Премиум': 28,
-  'Бизнес': 24,
-  'Спорткары': 34,
-  'Минивэны': 9,
-  'Комфорт': 18,
-  'Электромобили': 12,
-};

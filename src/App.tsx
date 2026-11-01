@@ -6,6 +6,7 @@ import { SearchForm } from "./components/SearchForm";
 import { BookingWizard } from "./components/BookingWizard";
 import { CarCarousel } from "./components/CarCarousel";
 import { InfoSection } from "./components/InfoSection";
+import { ClientsSection } from "./components/ClientsSection";
 import { CAR_CLASSES, CarClass } from "./types";
 
 const App: React.FC = () => {
@@ -54,6 +55,7 @@ const App: React.FC = () => {
                 </div>
               ))}
             </div>
+            <ClientsSection />
             <InfoSection />
           </>
         ) : (

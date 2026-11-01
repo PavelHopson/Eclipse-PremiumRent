@@ -17,7 +17,7 @@ export interface Car {
   isHotDeal?: boolean;
 }
 
-export interface Celebrity {
+export interface Client {
   name: string;
   role: string;
   text: string;
