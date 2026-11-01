@@ -707,3 +707,22 @@ a.rent-footer-line:hover, a.rent-footer-line:focus-visible { color: #e8d1ab; }
 .rent-float .rent-float-top { border-radius: 0; border-color: #ffffff33; }
 @media (max-height: 560px) { .rent-float a:not(.rent-float-top) { display: none; } }
 @media (prefers-reduced-motion: reduce) { .rent-car-image-extra, .rent-float a, .rent-float button, .rent-nav { transition: none; } }
+
+/* Невысокие экраны ноутбуков */
+@media (min-width: 901px) and (max-height: 840px) {
+  .rent-hero { min-height: 640px; height: 100svh; }
+  .rent-hero-content { margin-top: 84px; margin-bottom: 150px; }
+  .rent-hero h1 { margin-block: 14px; font-size: clamp(40px, 5vw, 68px); }
+  .rent-hero-copy { font-size: 15px; line-height: 1.55; }
+  .rent-primary { margin-top: 18px; }
+  .rent-disclaimer { margin-top: 10px; }
+  .rent-category-art { height: 54px; }
+}
+
+/* Кнопки связи на телефоне: не закрывают первый экран и цены */
+@media (max-width: 900px) {
+  .rent-float { right: 12px; bottom: 12px; gap: 8px; }
+  .rent-float a, .rent-float button { width: 42px; height: 42px; }
+  .rent-float.is-top { display: none; }
+  .rent-float .rent-float-top { display: none; }
+}

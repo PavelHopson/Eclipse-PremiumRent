@@ -4,7 +4,7 @@ import { CONTACTS } from "../data";
 import { MaxIcon, TelegramIcon, WhatsAppIcon } from "./ContactIcons";
 
 export const FloatingContacts: React.FC = () => {
-  const [open, setOpen] = useState(() => window.matchMedia("(min-width: 901px)").matches);
+  const [open, setOpen] = useState(() => window.matchMedia("(min-width: 1500px)").matches);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export const FloatingContacts: React.FC = () => {
   }, []);
 
   return (
-    <aside className="rent-float" aria-label="Связаться с нами">
+    <aside className={scrolled ? "rent-float" : "rent-float is-top"} aria-label="Связаться с нами">
       {open && (
         <>
           <a href={CONTACTS.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp" title="WhatsApp">
