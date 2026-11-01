@@ -17,6 +17,7 @@ export const SiteFooter: React.FC = () => (
       <p className="rent-footer-mark" aria-hidden="true">ECLIPSE</p>
       <div className="rent-footer-grid">
         <div className="rent-footer-brand">
+          <img src="/eclipse-mark.svg" alt="" width={56} height={56} />
           <strong>ECLIPSE</strong>
           <span>PREMIUM RENT</span>
           <p>Аренда премиальных автомобилей на побережье Балтики.</p>

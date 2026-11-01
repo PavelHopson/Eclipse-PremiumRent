@@ -54,6 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCatalogClick }) => {
           onClick={home}
           aria-label="Eclipse Premium Rent — на главную"
         >
+          <img src="/eclipse-mark.svg" alt="" width={38} height={38} />
           <span>ECLIPSE</span>
           <small>PREMIUM RENT</small>
         </button>
