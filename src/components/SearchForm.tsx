@@ -18,7 +18,7 @@ export const SearchForm: React.FC = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-30 -mt-12 sm:-mt-16 mb-4">
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 py-6">
       <div className="bg-dark-card/80 backdrop-blur-2xl border border-white/[0.04] shadow-premium">
         <div className="flex flex-col lg:flex-row items-stretch">
           <div className="flex-1 p-4 sm:p-5 lg:p-6 hover:bg-white/[0.015] transition-colors border-b lg:border-b-0 lg:border-r border-white/[0.04] cursor-pointer">

@@ -4,7 +4,6 @@ import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { SearchForm } from "./components/SearchForm";
 import { BookingWizard } from "./components/BookingWizard";
-import { CategorySelector } from "./components/CategorySelector";
 import { CarCarousel } from "./components/CarCarousel";
 import { InfoSection } from "./components/InfoSection";
 import { CAR_CLASSES, CarClass } from "./types";
@@ -38,9 +37,8 @@ const App: React.FC = () => {
       <main id="main">
         {booking.step === 1 ? (
           <>
-            <Hero onActionClick={scrollToFleet} />
+            <Hero onActionClick={scrollToFleet} onCategorySelect={handleCategorySelect} />
             <SearchForm />
-            <CategorySelector onSelect={handleCategorySelect} />
             <div ref={fleetRef} id="fleet" className="rent-fleet">
               <div className="rent-container rent-fleet-intro">
                 <p className="rent-eyebrow">АВТОПАРК / 02</p>

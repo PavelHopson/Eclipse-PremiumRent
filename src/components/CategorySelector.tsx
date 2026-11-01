@@ -21,12 +21,9 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({
 }) => (
   <section className="rent-categories" aria-labelledby="category-title">
     <div className="rent-container">
-      <div className="rent-section-heading">
-        <div>
-          <p className="rent-eyebrow">АВТОПАРК / КАТЕГОРИИ</p>
-          <h2 id="category-title">Для любого маршрута.</h2>
-        </div>
-        <p>Выберите класс, чтобы перейти к автомобилям.</p>
+      <div className="rent-category-heading">
+        <h2 id="category-title">Выберите класс автомобиля</h2>
+        <span aria-hidden="true">Листайте →</span>
       </div>
       <div className="rent-category-list">
         {CAR_CLASSES.map((category) => (
@@ -36,7 +33,7 @@ export const CategorySelector: React.FC<CategorySelectorProps> = ({
             onClick={() => onSelect?.(category)}
           >
             <span className="rent-category-art" aria-hidden="true">
-              <img src={CATEGORY_IMAGES[category]} alt="" loading="lazy" onError={(event) => { event.currentTarget.style.visibility = "hidden"; }} />
+              <img src={CATEGORY_IMAGES[category]} alt="" onError={(event) => { event.currentTarget.style.visibility = "hidden"; }} />
             </span>
             <span className="rent-category-name">{category} <span aria-hidden="true">↗</span></span>
           </button>

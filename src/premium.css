@@ -97,7 +97,7 @@
 .rent-hero-content {
   position: relative;
   width: min(1400px, calc(100% - 96px));
-  margin: 80px auto 0;
+  margin: 86px auto 165px;
 }
 .rent-eyebrow {
   color: #cdbb9b;
@@ -164,10 +164,24 @@
   letter-spacing: 0.14em;
 }
 .rent-categories {
-  padding: 100px 0;
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  padding: 12px 0 10px;
   background: #ece8e0;
   color: #23221f;
 }
+.rent-category-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #665a4a;
+}
+.rent-category-heading span { display: none; }
 .rent-section-heading {
   display: flex;
   align-items: end;
@@ -197,21 +211,20 @@
 .rent-category-list {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  border-top: 1px solid #c5bcb0;
+  gap: 10px;
 }
 .rent-category-list button {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   text-align: left;
-  border-bottom: 1px solid #c5bcb0;
-  padding: 16px 12px 18px 0;
+  padding: 3px 6px 7px 0;
   min-width: 0;
   font-size: 14px;
   cursor: pointer;
 }
 .rent-category-art {
-  height: 115px;
+  height: 82px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -410,8 +423,8 @@
     margin-left: auto;
   }
   .rent-hero {
-    min-height: 700px;
-    height: 88svh;
+    min-height: 620px;
+    height: 100svh;
   }
   .rent-hero-image {
     background-position: 60% center;
@@ -428,7 +441,6 @@
     right: 20px;
     bottom: 25px;
   }
-  .rent-categories,
   .rent-info {
     padding: 75px 0;
   }
@@ -439,9 +451,16 @@
     margin-top: 18px;
   }
   .rent-category-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0 12px;
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    gap: 14px;
+    scrollbar-width: thin;
+    scrollbar-color: #a99a86 transparent;
   }
+  .rent-category-list button { flex: 0 0 135px; }
+  .rent-category-art { height: 74px; }
+  .rent-category-heading span { display: inline; font-size: 10px; letter-spacing: 0; text-transform: none; }
   .rent-fleet {
     padding-top: 75px;
   }
@@ -473,9 +492,15 @@
   }
 }
 @media (max-width: 360px) {
-  .rent-category-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  .rent-category-list button { flex-basis: 124px; font-size: 13px; }
+}
+@media (max-width: 800px) and (max-height: 700px) {
+  .rent-hero { min-height: 560px; }
+  .rent-hero-content { margin-top: 90px; margin-bottom: 145px; }
+  .rent-hero h1 { margin: 12px 0; font-size: 32px; }
+  .rent-hero-copy { font-size: 14px; line-height: 1.5; }
+  .rent-primary { margin-top: 14px; padding-block: 12px; }
+  .rent-disclaimer { margin-top: 8px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *,

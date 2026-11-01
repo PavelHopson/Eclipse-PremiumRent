@@ -1,11 +1,14 @@
 import React from "react";
 import { ArrowDownRight } from "lucide-react";
+import { CategorySelector } from "./CategorySelector";
+import type { CarClass } from "../types";
 
 interface HeroProps {
   onActionClick?: () => void;
+  onCategorySelect?: (category: CarClass) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onActionClick }) => (
+export const Hero: React.FC<HeroProps> = ({ onActionClick, onCategorySelect }) => (
   <section className="rent-hero" aria-labelledby="rent-title">
     <div className="rent-hero-image" aria-hidden="true" />
     <div className="rent-hero-shade" aria-hidden="true" />
@@ -29,9 +32,6 @@ export const Hero: React.FC<HeroProps> = ({ onActionClick }) => (
         Демонстрационный проект. Цены и автомобили приведены для примера.
       </p>
     </div>
-    <div className="rent-hero-index" aria-hidden="true">
-      <span>01 / 03</span>
-      <span>СВОБОДА ДВИЖЕНИЯ</span>
-    </div>
+    <CategorySelector onSelect={onCategorySelect} />
   </section>
 );
