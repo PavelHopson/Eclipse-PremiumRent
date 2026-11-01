@@ -225,45 +225,72 @@
   transition: color 220ms ease;
 }
 .rent-category-art {
-  height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.rent-category-art img {
+  display: block;
   width: 100%;
-  max-width: 179px;
-  height: 100%;
-  object-fit: contain;
-  filter: brightness(1.8) drop-shadow(0 1px 2px rgba(238, 225, 205, .5));
-  transition: filter 220ms ease, transform 220ms ease;
+  max-width: 160px;
+  height: 62px;
+  overflow: visible;
+  stroke-linejoin: round;
+  transition: filter 240ms ease, transform 240ms ease;
 }
+.rent-category-art path,
+.rent-category-art circle {
+  stroke: #eee2d0a6;
+  stroke-width: 1.4;
+  fill: none;
+  transition: stroke 240ms ease, fill 240ms ease, opacity 240ms ease;
+}
+.rent-category-art .rent-car-body { fill: #eee2d00f; }
+.rent-category-art .rent-car-wheel { fill: #0b0c0b; }
+.rent-category-art .rent-car-hub { fill: #eee2d0a6; stroke: none; }
+.rent-category-art .rent-car-lamp { fill: #e8d1ab; stroke: none; opacity: .25; }
 .rent-category-name {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  display: block;
+  margin-top: 6px;
   min-width: 0;
-}
-.rent-category-name span {
-  margin-left: auto;
-  color: #d9c8ab;
-  transition: transform 220ms ease, color 220ms ease;
 }
 .rent-category-list button:hover,
 .rent-category-list button:focus-visible,
-.rent-category-list button:active {
+.rent-category-list button:active,
+.rent-category-list button[aria-pressed="true"] {
   color: #e8d1ab;
 }
-.rent-category-list button:hover img,
-.rent-category-list button:focus-visible img,
-.rent-category-list button:active img {
-  filter: brightness(2.05) drop-shadow(0 2px 6px rgba(232, 209, 171, .72));
-  transform: translateY(-3px) scale(1.045);
+.rent-category-list button:hover .rent-category-art,
+.rent-category-list button:focus-visible .rent-category-art,
+.rent-category-list button:active .rent-category-art,
+.rent-category-list button[aria-pressed="true"] .rent-category-art {
+  filter: drop-shadow(0 0 7px #c9a96eb3);
+  transform: translateY(-2px);
 }
-.rent-category-list button:hover .rent-category-name span,
-.rent-category-list button:focus-visible .rent-category-name span {
-  color: #fff;
-  transform: translate(2px, -2px);
+.rent-category-list button:hover .rent-category-art path,
+.rent-category-list button:hover .rent-category-art circle,
+.rent-category-list button:focus-visible .rent-category-art path,
+.rent-category-list button:focus-visible .rent-category-art circle,
+.rent-category-list button:active .rent-category-art path,
+.rent-category-list button:active .rent-category-art circle,
+.rent-category-list button[aria-pressed="true"] .rent-category-art path,
+.rent-category-list button[aria-pressed="true"] .rent-category-art circle {
+  stroke: #e8d1ab;
+}
+.rent-category-list button:hover .rent-car-body,
+.rent-category-list button:focus-visible .rent-car-body,
+.rent-category-list button:active .rent-car-body,
+.rent-category-list button[aria-pressed="true"] .rent-car-body {
+  fill: #c9a96e47;
+}
+.rent-category-list button:hover .rent-car-hub,
+.rent-category-list button:focus-visible .rent-car-hub,
+.rent-category-list button:active .rent-car-hub,
+.rent-category-list button[aria-pressed="true"] .rent-car-hub {
+  fill: #e8d1ab;
+  stroke: none;
+}
+.rent-category-list button:hover .rent-car-lamp,
+.rent-category-list button:focus-visible .rent-car-lamp,
+.rent-category-list button:active .rent-car-lamp,
+.rent-category-list button[aria-pressed="true"] .rent-car-lamp {
+  opacity: 1;
+  stroke: none;
 }
 .rent-fleet {
   padding-top: 105px;
@@ -477,7 +504,7 @@
   }
   .rent-category-list::-webkit-scrollbar { display: none; }
   .rent-category-list button { flex: 0 0 135px; }
-  .rent-category-art { height: 74px; }
+  .rent-category-art { height: 54px; }
   .rent-category-heading span { display: inline; font-size: 10px; letter-spacing: 0; text-transform: none; }
   .rent-fleet {
     padding-top: 75px;
