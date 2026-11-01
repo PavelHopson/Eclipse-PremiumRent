@@ -227,7 +227,7 @@
 .rent-category-art {
   display: flex;
   align-items: flex-end;
-  height: 82px;
+  height: 66px;
 }
 .rent-category-art img {
   display: block;
@@ -468,7 +468,7 @@
   }
   .rent-category-list::-webkit-scrollbar { display: none; }
   .rent-category-list button { flex: 0 0 135px; }
-  .rent-category-art { height: 70px; }
+  .rent-category-art { height: 58px; }
   .rent-category-heading span { display: inline; font-size: 10px; letter-spacing: 0; text-transform: none; }
   .rent-fleet {
     padding-top: 75px;
