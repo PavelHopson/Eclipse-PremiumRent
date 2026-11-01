@@ -10,7 +10,7 @@ const LINKS = [
   { label: "Автопарк", id: "fleet" },
   { label: "Маршруты", id: "routes" },
   { label: "Клиенты", id: "clients" },
-  { label: "Условия", id: "conditions" },
+  { label: "Инструкция", id: "guide" },
   { label: "Приложение", id: "app" },
 ];
 

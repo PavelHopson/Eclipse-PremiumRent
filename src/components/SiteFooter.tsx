@@ -7,7 +7,7 @@ const SECTIONS = [
   { label: "Автопарк", href: "#fleet" },
   { label: "Маршруты", href: "#routes" },
   { label: "Клиенты", href: "#clients" },
-  { label: "Условия", href: "#conditions" },
+  { label: "Инструкция", href: "#guide" },
   { label: "Приложение", href: "#app" },
 ];
 
