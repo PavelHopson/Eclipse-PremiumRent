@@ -168,8 +168,8 @@
   inset: auto 0 0;
   z-index: 2;
   padding: 12px 0 10px;
-  background: #ece8e0;
-  color: #23221f;
+  background: transparent;
+  color: #f5f1e9;
 }
 .rent-category-heading {
   display: flex;
@@ -179,7 +179,7 @@
   font-weight: 600;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: #665a4a;
+  color: #eee2d0;
 }
 .rent-category-heading span { display: none; }
 .rent-section-heading {
@@ -222,6 +222,8 @@
   min-width: 0;
   font-size: 14px;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
 }
 .rent-category-art {
   height: 82px;
@@ -234,6 +236,8 @@
   max-width: 179px;
   height: 100%;
   object-fit: contain;
+  filter: grayscale(1) invert(1) brightness(.85);
+  transition: filter 180ms ease, transform 180ms ease;
 }
 .rent-category-name {
   display: flex;
@@ -243,10 +247,20 @@
 }
 .rent-category-name span {
   margin-left: auto;
-  color: #837769;
+  color: #d9c8ab;
 }
-.rent-category-list button:hover {
-  color: #8b6f48;
+.rent-category-list button:hover,
+.rent-category-list button:focus-visible,
+.rent-category-list button:active {
+  color: #fff;
+  background-color: rgba(223, 205, 173, .16);
+  border-bottom-color: #d9c8ab;
+}
+.rent-category-list button:hover img,
+.rent-category-list button:focus-visible img,
+.rent-category-list button:active img {
+  filter: grayscale(1) invert(1) brightness(1);
+  transform: translateY(-3px);
 }
 .rent-fleet {
   padding-top: 105px;
