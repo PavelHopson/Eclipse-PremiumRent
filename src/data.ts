@@ -362,12 +362,12 @@ export const CARS: Car[] = FLEET.map((car) => ({
   images: [carImage(car.id), carImage(`${car.id}-2`), carImage(`${car.id}-3`)].filter(Boolean),
 }));
 
-// Контакты примера: заменить на настоящие перед запуском.
+// Контакты-заглушки: сайт — концепт для портфолио.
 export const CONTACTS = {
   phone: '+7 (900) 000-00-00',
   tel: 'tel:+79000000000',
   whatsapp: 'https://wa.me/79000000000',
-  telegram: 'https://t.me/eclipse_rent',
+  telegram: 'https://t.me/',
   max: 'https://max.ru/',
 };
 
