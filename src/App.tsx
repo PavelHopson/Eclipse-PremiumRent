@@ -8,6 +8,10 @@ import { CarCarousel } from "./components/CarCarousel";
 import { InfoSection } from "./components/InfoSection";
 import { ClientsSection } from "./components/ClientsSection";
 import { RoutesSection } from "./components/RoutesSection";
+import { AboutSection } from "./components/AboutSection";
+import { AppSection } from "./components/AppSection";
+import { SiteFooter } from "./components/SiteFooter";
+import { FloatingContacts } from "./components/FloatingContacts";
 import { CAR_CLASSES, CarClass } from "./types";
 
 const App: React.FC = () => {
@@ -59,26 +63,15 @@ const App: React.FC = () => {
             <RoutesSection />
             <ClientsSection />
             <InfoSection />
+            <AboutSection />
+            <AppSection />
           </>
         ) : (
           <BookingWizard />
         )}
       </main>
-      <footer className="rent-footer">
-        <div className="rent-container"><p className="rent-footer-mark" aria-hidden="true">ECLIPSE</p></div>
-        <div className="rent-container rent-footer-inner">
-          <div>
-            <strong>ECLIPSE</strong>
-            <span>PREMIUM RENT</span>
-          </div>
-          <p>
-            Демонстрационный проект для портфолио.
-            <br />
-            Заявки и оплата не подключены.
-          </p>
-          <a href="#main">Наверх ↑</a>
-        </div>
-      </footer>
+      <SiteFooter />
+      <FloatingContacts />
     </div>
   );
 };

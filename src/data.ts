@@ -6,7 +6,7 @@ export const carImage = (id: string) => images[`./assets/cars/${id}.webp`];
 const portraits = import.meta.glob<string>('./assets/clients/*.webp', { eager: true, query: '?url', import: 'default' });
 const portrait = (id: string) => portraits[`./assets/clients/${id}.webp`];
 
-export const CARS: Car[] = [
+const FLEET: Car[] = [
   {
     id: 'g63-amg',
     name: 'Mercedes G63 AMG',
@@ -356,12 +356,43 @@ export const CARS: Car[] = [
   }
 ];
 
+// Салон и вид сзади подключаются автоматически, если файлы лежат рядом с основным фото.
+export const CARS: Car[] = FLEET.map((car) => ({
+  ...car,
+  images: [carImage(car.id), carImage(`${car.id}-2`), carImage(`${car.id}-3`)].filter(Boolean),
+}));
+
+// Контакты примера: заменить на настоящие перед запуском.
+export const CONTACTS = {
+  phone: '+7 (900) 000-00-00',
+  tel: 'tel:+79000000000',
+  whatsapp: 'https://wa.me/79000000000',
+  telegram: 'https://t.me/eclipse_rent',
+  max: 'https://max.ru/',
+};
+
 // Вымышленные персонажи для демонстрации блока. Реальных людей здесь нет.
-export const CLIENTS: Client[] = [
+const CLIENT_LIST: Client[] = [
   { name: 'Вера Ланская', role: 'Архитектор', text: 'Беру Ghost на объекты: заказчики слушают внимательнее.', img: portrait('vera') },
   { name: 'Марк Ильин', role: 'Капитан дальнего плавания', text: 'После полугода в море хочется твёрдой земли и большой машины.', img: portrait('mark') },
   { name: 'Тая Север', role: 'Гонщица-испытатель', text: 'Обычно я проверяю машины. Здесь проверять нечего.', img: portrait('taya') },
   { name: 'Лев Орбин', role: 'Шеф-повар', text: 'Хороший сервис как хорошая кухня: всё готово к твоему приходу.', img: portrait('lev') },
   { name: 'Ада Кросс', role: 'Кинорежиссёр', text: 'Приезжаю на съёмки красиво, даже если снимаю в дюнах.', img: portrait('ada') },
   { name: 'Эмиль Гранд', role: 'Профессор астрономии', text: 'Тихий электромотор и тёмное небо над Куршской косой.', img: portrait('emil') },
+  { name: 'Нина Дрозд', role: 'Прима-балерина', text: 'После премьеры хочется тишины. В этом салоне она есть.', img: portrait('nina') },
+  { name: 'Олег Бриз', role: 'Яхтсмен', text: 'Без крыши почти как в море, только волн меньше.', img: portrait('oleg') },
+  { name: 'Зоя Мирская', role: 'Скрипачка', text: 'Футляр едет на заднем сиденье, как отдельный пассажир.', img: portrait('zoya') },
+  { name: 'Тимур Вальд', role: 'Фотограф дикой природы', text: 'До рассвета надо успеть в лес, и машина меня не подводит.', img: portrait('timur') },
+  { name: 'Лина Арго', role: 'Пилот', text: 'Весь день я за штурвалом. Вечером хочу, чтобы было так же плавно.', img: portrait('lina') },
+  { name: 'Глеб Штерн', role: 'Часовщик', text: 'Ценю механизмы, в которых ничего не приходится подгонять.', img: portrait('gleb') },
+  { name: 'Кира Вольт', role: 'Инженер-робототехник', text: 'Люблю машины, которые обновляются быстрее, чем я успеваю привыкнуть.', img: portrait('kira') },
+  { name: 'Роман Ясень', role: 'Альпинист', text: 'Самая лёгкая часть восхождения теперь дорога до гор.', img: portrait('roman') },
+  { name: 'София Ренн', role: 'Модельер', text: 'Цвет выбирала дольше, чем ткань для коллекции.', img: portrait('sofia') },
+  { name: 'Артём Кай', role: 'Джазовый саксофонист', text: 'Двигатель держит ноту лучше половины моих музыкантов.', img: portrait('artem') },
+  { name: 'Ева Лунд', role: 'Морской биолог', text: 'В багажник помещаются и пробы, и дождевик, и термос.', img: portrait('eva') },
+  { name: 'Борис Тал', role: 'Гроссмейстер', text: 'Хороший ход: приехать раньше соперника.', img: portrait('boris') },
+  { name: 'Мира Соль', role: 'Шоколатье', text: 'Конфеты доезжают целыми, а это главный тест.', img: portrait('mira') },
+  { name: 'Илья Гром', role: 'Дирижёр', text: 'В зале я задаю темп. За рулём приятно просто слушать.', img: portrait('ilya') },
 ];
+
+export const CLIENTS = CLIENT_LIST.filter((client) => client.img);

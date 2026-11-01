@@ -14,7 +14,7 @@ const ROUTES = [
 export const RoutesSection: React.FC = () => {
   const reduced = useReducedMotion();
   return (
-    <section className="rent-routes" aria-labelledby="routes-title">
+    <section className="rent-routes" id="routes" aria-labelledby="routes-title">
       <div className="rent-container">
         <p className="rent-eyebrow">МАРШРУТЫ</p>
         <h2 id="routes-title">Куда поехать.</h2>

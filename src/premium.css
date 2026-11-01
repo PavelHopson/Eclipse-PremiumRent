@@ -574,3 +574,128 @@
 .rent-footer-mark { margin: 0 0 40px; font-family: Georgia, serif; font-size: clamp(56px, 15vw, 230px); line-height: .9; letter-spacing: .04em; text-align: center; color: rgba(242, 238, 230, .1); }
 @media (max-width: 700px) { .rent-routes { padding: 72px 0; } .rent-routes-grid { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) { .rent-car-image-alt, .rent-routes-photo img { transition: none; } .rent-routes-grid li:hover img { transform: none; } }
+
+/* Шапка */
+#routes, #clients, #conditions, #app, #fleet, #help { scroll-margin-top: 72px; }
+.rent-nav { position: fixed; transition: background 300ms ease, border-color 300ms ease, backdrop-filter 300ms ease; }
+.rent-nav.is-solid { background: #0d0e0ceb; backdrop-filter: blur(14px); border-bottom-color: #c9a96e33; }
+.rent-nav .rent-nav-inner { height: 76px; gap: 28px; transition: height 300ms ease; }
+.rent-nav.is-solid .rent-nav-inner { height: 64px; }
+.rent-nav-links { display: flex; align-items: center; gap: 26px; margin-left: 28px; }
+.rent-nav-links button { position: relative; padding: 8px 0; font-size: 13px; color: #eeeae2cc; cursor: pointer; transition: color 200ms ease; }
+.rent-nav-links button::after { content: ""; position: absolute; left: 0; right: 0; bottom: 2px; height: 1px; background: #c9a96e; transform: scaleX(0); transform-origin: left; transition: transform 260ms ease; }
+.rent-nav-links button:hover, .rent-nav-links button:focus-visible { color: #fff; }
+.rent-nav-links button:hover::after, .rent-nav-links button:focus-visible::after { transform: scaleX(1); }
+.rent-nav .rent-nav-action { gap: 18px; border-color: #c9a96e; color: #e8d1ab; }
+.rent-nav .rent-nav-action:hover { background: #c9a96e; color: #12120f; }
+@media (max-width: 1180px) { .rent-nav-links { display: none; } }
+@media (max-width: 900px) { .rent-nav .rent-nav-inner { height: 68px; } .rent-nav-location, .rent-nav .rent-nav-action { display: none; } .rent-menu-toggle { margin-left: auto; } }
+
+/* Карточки */
+.rent-car-image-extra { position: absolute; inset: 0; opacity: 0; transition: opacity 320ms ease; }
+.rent-car-image-extra[data-active="true"] { opacity: 1; }
+.rent-car-zones { position: absolute; inset: 0; z-index: 1; display: flex; }
+.rent-car-zones span { flex: 1; }
+.rent-car-view { position: absolute; z-index: 2; left: 10px; top: 10px; padding: 4px 9px; font-size: 11px; color: #f2eee6; background: #0d0e0cb8; opacity: 0; transition: opacity 200ms ease; }
+.rent-car:hover .rent-car-view, .rent-car:focus-visible .rent-car-view { opacity: 1; }
+.rent-car-dots { position: absolute; z-index: 2; left: 10px; right: 56px; bottom: 11px; display: flex; gap: 5px; }
+.rent-car-dots i { flex: 0 1 26px; height: 2px; background: #ffffff59; transition: background 200ms ease; }
+.rent-car-dots i[data-active="true"] { background: #e8d1ab; }
+
+/* Клиенты */
+.rent-clients-wrap { position: relative; }
+.rent-clients .rent-clients-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 40px 18px; }
+.rent-clients .rent-clients-grid li { margin-top: 0; }
+.rent-clients .rent-clients-grid strong { font-size: 16px; }
+.rent-clients .rent-clients-grid span { font-size: 10px; letter-spacing: .1em; }
+.rent-clients .rent-clients-grid p { margin-top: 9px; font-size: 13px; line-height: 1.5; }
+.rent-clients .rent-clients-grid figcaption { padding-top: 14px; }
+.rent-clients-wrap.is-collapsed { max-height: 960px; overflow: hidden; }
+.rent-clients-wrap.is-collapsed::after { content: ""; position: absolute; inset: auto 0 0; height: 300px; background: linear-gradient(to bottom, transparent, #111210 92%); pointer-events: none; }
+.rent-clients-more { display: block; position: relative; z-index: 1; margin: -28px auto 0; padding: 15px 30px; border: 1px solid #c9a96e; color: #e8d1ab; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; background: #111210; cursor: pointer; transition: background 200ms ease, color 200ms ease; }
+.rent-clients-more:hover, .rent-clients-more:focus-visible { background: #c9a96e; color: #12120f; }
+.rent-clients-more span { margin-left: 8px; }
+@media (max-width: 1100px) { .rent-clients .rent-clients-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .rent-clients-wrap.is-collapsed { max-height: 1500px; } }
+@media (max-width: 600px) { .rent-clients .rent-clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 12px; } .rent-clients-wrap.is-collapsed { max-height: 1750px; } }
+
+/* О сервисе */
+.rent-about { padding: 110px 0; background: #111210; border-top: 1px solid #ffffff14; color: #f2eee6; }
+.rent-about-inner { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px 70px; }
+.rent-about h2 { margin: 14px 0 18px; font-family: Georgia, serif; font-size: clamp(32px, 3.6vw, 52px); font-weight: 400; line-height: 1.08; }
+.rent-about-lead > p:last-child { max-width: 42ch; font-size: 15px; line-height: 1.65; color: #f2eee6b8; }
+.rent-about-grid { display: grid; gap: 0; }
+.rent-about-grid article { display: grid; grid-template-columns: minmax(150px, 2fr) minmax(0, 5fr); gap: 24px; padding: 26px 0; border-top: 1px solid #ffffff1f; }
+.rent-about-grid h3 { font-size: 16px; font-weight: 500; color: #e8d1ab; }
+.rent-about-grid p, .rent-about-grid li { font-size: 14px; line-height: 1.65; color: #f2eee6b8; }
+.rent-about-grid ul { margin: 0; padding: 0; list-style: none; }
+.rent-about-note { grid-column: 1 / -1; font-size: 12px; color: #f2eee68c; }
+@media (max-width: 900px) { .rent-about { padding: 72px 0; } .rent-about-inner { grid-template-columns: minmax(0, 1fr); } .rent-about-grid article { grid-template-columns: minmax(0, 1fr); gap: 10px; } }
+
+/* Приложение */
+.rent-app { position: relative; overflow: hidden; background: radial-gradient(ellipse 60% 70% at 72% 40%, #c9a96e29, transparent 70%), #0d0e0c; border-top: 1px solid #ffffff14; color: #f2eee6; }
+.rent-app-inner { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: 40px; min-height: 680px; padding-top: 80px; }
+.rent-app-copy { padding-bottom: 80px; }
+.rent-app h2 { margin: 14px 0 20px; font-family: Georgia, serif; font-size: clamp(40px, 5vw, 76px); font-weight: 400; line-height: 1.02; }
+.rent-app h2 em { color: #ddc8a5; }
+.rent-app-copy > p { max-width: 44ch; font-size: 16px; line-height: 1.65; color: #f2eee6c7; }
+.rent-app-copy ul { margin: 24px 0 30px; padding: 0; list-style: none; }
+.rent-app-copy li { padding: 11px 0; font-size: 14px; color: #f2eee6d9; border-top: 1px solid #ffffff1a; }
+.rent-app-stores { display: flex; flex-wrap: wrap; gap: 12px; }
+.rent-app-stores span { display: grid; min-width: 150px; padding: 10px 18px; border: 1px solid #ffffff4d; font-size: 17px; }
+.rent-app-stores small { font-size: 10px; letter-spacing: .08em; color: #f2eee6a6; }
+.rent-app-copy > .rent-app-note { margin-top: 16px; font-size: 12px; color: #f2eee68c; }
+.rent-app-phones { position: relative; align-self: end; height: 600px; }
+.rent-phone { position: absolute; bottom: -70px; width: 290px; padding: 9px; border-radius: 44px; background: #050505; box-shadow: 0 0 0 1px #c9a96e66, 0 40px 80px #00000099; }
+.rent-phone-front { left: 44%; z-index: 2; }
+.rent-phone-back { left: 8%; bottom: -130px; transform: rotate(-5deg); opacity: .92; }
+.rent-phone-screen { height: 620px; overflow: hidden; padding: 14px 16px; border-radius: 36px; background: #151613; font-size: 12px; color: #f2eee6; }
+.rent-phone-status { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; font-size: 11px; font-weight: 600; }
+.rent-phone-status i { width: 76px; height: 20px; border-radius: 12px; background: #050505; }
+.rent-phone-title { margin-bottom: 12px; font-size: 13px; text-align: center; color: #e8d1ab; }
+.rent-phone-photo { position: relative; margin: 0 -16px 12px; aspect-ratio: 3 / 2; overflow: hidden; }
+.rent-phone-photo img { width: 100%; height: 100%; object-fit: cover; }
+.rent-phone-photo span { position: absolute; right: 9px; bottom: 9px; padding: 3px 8px; font-size: 10px; background: #0d0e0cc7; }
+.rent-phone-specs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; margin-bottom: 12px; }
+.rent-phone-specs span { display: grid; justify-items: center; gap: 5px; font-size: 9px; color: #f2eee6a6; }
+.rent-phone-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; }
+.rent-phone-prices div { display: grid; gap: 5px; padding: 10px; background: #22231f; }
+.rent-phone-prices small { font-size: 10px; color: #f2eee6a6; }
+.rent-phone-prices b { font-size: 13px; font-weight: 500; }
+.rent-phone-label { font-size: 9px; letter-spacing: .1em; color: #f2eee6a6; }
+.rent-phone-date { display: flex; align-items: center; justify-content: space-between; margin: 8px 0 10px; padding: 11px 12px; font-size: 11px; border: 1px solid #ffffff33; }
+.rent-phone-cta { padding: 12px; text-align: center; font-size: 12px; font-weight: 600; color: #12120f; background: #c9a96e; }
+.rent-phone-tabs { display: flex; gap: 12px; margin-bottom: 12px; font-size: 11px; color: #f2eee6a6; }
+.rent-phone-tabs b { font-weight: 500; color: #e8d1ab; }
+.rent-phone-row { margin-bottom: 12px; }
+.rent-phone-row img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.rent-phone-row div { display: flex; justify-content: space-between; gap: 8px; padding-top: 6px; }
+.rent-phone-row strong { font-size: 11px; font-weight: 500; }
+.rent-phone-row small { flex: none; font-size: 10px; color: #e8d1ab; }
+@media (max-width: 1100px) { .rent-phone-front { left: 40%; } .rent-phone-back { left: 0; } }
+@media (max-width: 900px) { .rent-app-inner { grid-template-columns: minmax(0, 1fr); padding-top: 64px; } .rent-app-copy { padding-bottom: 20px; } .rent-app-phones { height: 520px; } .rent-phone-back { display: none; } .rent-phone-front { left: 50%; margin-left: -145px; bottom: -130px; } }
+
+/* Подвал */
+.rent-footer { padding: 70px 0 34px; background: linear-gradient(to bottom, #0d0e0c, #090a08); border-top: 1px solid #c9a96e40; color: #f2eee6; }
+.rent-footer .rent-footer-mark { margin-bottom: 56px; color: transparent; background: linear-gradient(to bottom, #c9a96e8c, #c9a96e0d); -webkit-background-clip: text; background-clip: text; }
+.rent-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr 1.5fr; gap: 40px; }
+.rent-footer-grid h3 { margin-bottom: 18px; font-size: 15px; font-weight: 500; }
+.rent-footer-grid nav a { display: block; padding: 6px 0; font-size: 14px; color: #f2eee6a6; transition: color 200ms ease; }
+.rent-footer-grid nav a:hover, .rent-footer-grid nav a:focus-visible { color: #e8d1ab; }
+.rent-footer-brand strong { display: block; font-size: 21px; font-weight: 500; letter-spacing: .24em; }
+.rent-footer-brand span { display: block; margin-top: 5px; font-size: 9px; letter-spacing: .23em; color: #c9a96e; }
+.rent-footer-brand p { max-width: 26ch; margin-top: 18px; font-size: 14px; line-height: 1.6; color: #f2eee6a6; }
+.rent-footer-line { display: flex; align-items: center; gap: 11px; padding: 7px 0; font-size: 14px; color: #f2eee6a6; transition: color 200ms ease; }
+.rent-footer-line svg { flex: none; }
+a.rent-footer-line:hover, a.rent-footer-line:focus-visible { color: #e8d1ab; }
+.rent-footer-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 30px; margin-top: 50px; padding-top: 22px; font-size: 12px; color: #f2eee68c; border-top: 1px solid #ffffff1a; }
+.rent-footer-legal a { color: #f2eee6c7; }
+@media (max-width: 900px) { .rent-footer-grid { grid-template-columns: 1fr 1fr; } .rent-footer-brand { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .rent-footer-grid { grid-template-columns: minmax(0, 1fr); } .rent-footer { padding-bottom: 96px; } }
+
+/* Кнопки связи */
+.rent-float { position: fixed; z-index: 40; right: 22px; bottom: 22px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.rent-float a, .rent-float button { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #ffffff5c; border-radius: 50%; background: #1a1b18e6; color: #f2eee6; cursor: pointer; transition: border-color 200ms ease, transform 200ms ease, background 200ms ease; }
+.rent-float a:hover, .rent-float button:hover, .rent-float a:focus-visible, .rent-float button:focus-visible { border-color: #c9a96e; background: #24251f; transform: translateY(-2px); }
+.rent-float .rent-float-top { border-radius: 0; border-color: #ffffff33; }
+@media (max-height: 560px) { .rent-float a:not(.rent-float-top) { display: none; } }
+@media (prefers-reduced-motion: reduce) { .rent-car-image-extra, .rent-float a, .rent-float button, .rent-nav { transition: none; } }
