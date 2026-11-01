@@ -196,25 +196,39 @@
 }
 .rent-category-list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   border-top: 1px solid #c5bcb0;
 }
 .rent-category-list button {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  flex-direction: column;
+  align-items: stretch;
   text-align: left;
   border-bottom: 1px solid #c5bcb0;
-  padding: 22px 12px 22px 0;
-  min-height: 70px;
-  font-size: 15px;
+  padding: 16px 12px 18px 0;
+  min-width: 0;
+  font-size: 14px;
   cursor: pointer;
 }
-.rent-category-list button span:first-child {
-  font-size: 10px;
-  color: #837769;
+.rent-category-art {
+  height: 115px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.rent-category-list button span:last-child {
+.rent-category-art img {
+  width: 100%;
+  max-width: 179px;
+  height: 100%;
+  object-fit: contain;
+}
+.rent-category-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.rent-category-name span {
   margin-left: auto;
   color: #837769;
 }
@@ -425,8 +439,8 @@
     margin-top: 18px;
   }
   .rent-category-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 15px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 12px;
   }
   .rent-fleet {
     padding-top: 75px;
@@ -441,6 +455,9 @@
   }
 }
 @media (max-width: 420px) {
+  .rent-category-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .rent-hero h1 {
     font-size: 40px;
   }
@@ -457,7 +474,7 @@
 }
 @media (max-width: 360px) {
   .rent-category-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 @media (prefers-reduced-motion: reduce) {
